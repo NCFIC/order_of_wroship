@@ -1,0 +1,27 @@
+/*
+
+Styles for the book (store) container.
+
+Mainly created this so that we can apply a background color to the first row in
+the container using nth selectors and media queries to determine how many children
+in each row based on width.
+
+*/
+
+.book-container {
+	@apply
+		.max-w-4xl 
+		.px-0 
+		.w-full 
+		.flex 
+		.flex-wrap
+		.justify-center
+}
+
+.book-body p:nth-child(1) {
+	@apply
+		.text-lg
+		.text-ncfic-blue-700
+		.font-medium
+		.pb-4
+}

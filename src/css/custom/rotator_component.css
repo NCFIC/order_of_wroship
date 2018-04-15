@@ -1,0 +1,38 @@
+/* Rotator Background Component */
+.rotator-bg {
+	@apply 
+		.w-full 
+		.flex  
+		.items-center 
+		.bg-cover 
+		.bg-center 
+		.cursor-pointer;
+}
+
+/* Medium variant of the rotator bg imae */
+@screen md {
+	.rotator-bg {
+		@apply 
+			.-mr-14;
+			width: calc(50% + 3.5rem);
+	}
+}
+
+/* Medium variant of the rotator bg imae */
+@screen md {
+	.rotator-bg.w-3\/7 {
+		@apply 
+			.-mr-14;
+			width: calc(42.8571428571% + 3.5rem);
+	}
+}
+
+/* Large variant of the rotator bg imae */
+@screen lg {
+	.rotator-bg {
+		@apply 
+			.flex 
+			.-mr-0 
+			.w-1/2;
+	}
+}

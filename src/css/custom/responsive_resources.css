@@ -1,0 +1,210 @@
+.lc {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.rsc-inner-container {
+  @apply .text-left .text-black .bg-white .cursor-pointer .h-128 .flex .flex-wrap .flex-col .trans;
+  box-shadow: 0 8px 40px 0 rgba(0, 0, 0, .1);
+}
+
+.rsc-inner-container:hover {
+  box-shadow: 0 8px 20px 6px rgba(0, 0, 0, .1);
+}
+
+.rsc-image {
+  @apply .w-full .h-64 .bg-cover .bg-center .border-grey-light;
+  margin-bottom: -2px;
+}
+
+.rsc-text {
+  @apply .w-full .max-h-96;
+}
+
+.scale-1:hover {
+  transform: scale(1.025);
+  transform-origin: bottom;
+}
+
+/* The below two screen queries are just designating
+sizes for the outer containers of each resource, spacing
+them at 1/3, 1/4, 1/2, or 2/3 depending on the order
+of the div withing the resources-container. */
+
+/* Medium variants of the outermost resource container */
+@screen sm {
+  #resources-container div.rsc-outer-container {
+    @apply .w-1/2;
+  }
+}
+
+/* Larve variants of the outermost resource container */
+@screen lg {
+  #resources-container div.rsc-outer-container {
+    @apply .w-1/3;
+  }
+  #resources-container div.rsc-outer-container:nth-child(1) {
+    @apply .w-2/3;
+  }
+  #resources-container div.rsc-outer-container:nth-child(6) {
+    @apply .w-1/3;
+  }
+  #resources-container div.rsc-outer-container:nth-child(7) {
+    @apply .w-2/3;
+  }
+}
+
+/* XL variants of the outermost resource container */
+@screen xl {
+  #resources-container div.rsc-outer-container {
+    @apply .w-1/4;
+  }
+  #resources-container div.rsc-outer-container:nth-child(1) {
+    @apply .w-1/2;
+  }
+  #resources-container div.rsc-outer-container:nth-child(6) {
+    @apply .w-1/2;
+  }
+  #resources-container div.rsc-outer-container:nth-child(7) {
+    @apply .w-1/4;
+  }
+}
+
+/* The two screen queries below are just designating
+flex direction for the inner containers of each resource,
+setting the larger resource boxes to the 'row' direction, while
+leaving small boxes arranged as columns. */
+
+/* Large variants of the inner resource container */
+@screen lg {
+  #resources-container
+    div.rsc-outer-container:nth-child(1)
+    .rsc-inner-container {
+    @apply .flex-row;
+  }
+  #resources-container
+    div.rsc-outer-container:nth-child(7)
+    .rsc-inner-container {
+    @apply .flex-row;
+  }
+}
+
+/* XL variants of the inner resource container */
+@screen xl {
+  #resources-container
+    div.rsc-outer-container:nth-child(6)
+    .rsc-inner-container {
+    @apply .flex-row;
+  }
+  #resources-container
+    div.rsc-outer-container:nth-child(7)
+    .rsc-inner-container {
+    @apply .flex-col;
+  }
+}
+
+/* The two screen queries below are just designating
+the size of each resource image. */
+
+/* Define the large and medium variants */
+.rsc-image {
+  @apply .h-32;
+}
+.rsc-image-medium {
+  @apply .w-full .h-32;
+}
+.rsc-image-large {
+  @apply .w-1/2 .h-auto .m-0;
+}
+
+/* Large settings for the inner resource container */
+@screen lg {
+  #resources-container div.rsc-outer-container:nth-child(1) .rsc-image {
+    @apply .rsc-image-large;
+  }
+  #resources-container div.rsc-outer-container:nth-child(6) .rsc-image {
+    @apply .rsc-image-medium;
+  }
+  #resources-container div.rsc-outer-container:nth-child(7) .rsc-image {
+    @apply .rsc-image-large;
+  }
+}
+
+/* XL settings for the inner resource container */
+@screen xl {
+  #resources-container div.rsc-outer-container:nth-child(6) .rsc-image {
+    @apply .rsc-image-large;
+  }
+  #resources-container div.rsc-outer-container:nth-child(7) .rsc-image {
+    @apply .rsc-image-medium;
+  }
+}
+
+/* The two screen queries below are just designating
+the size and height of each text field for resources. */
+
+/* Define the large and medium variants */
+.rsc-text-medium {
+  @apply .w-full;
+}
+.rsc-text-large {
+  @apply .w-1/2 .max-h-full;
+}
+
+/* Large settings for the resource text container */
+@screen lg {
+  #resources-container div.rsc-outer-container:nth-child(1) .rsc-text {
+    @apply .rsc-text-large;
+  }
+  #resources-container div.rsc-outer-container:nth-child(6) .rsc-text {
+    @apply .rsc-text-medium;
+  }
+  #resources-container div.rsc-outer-container:nth-child(7) .rsc-text {
+    @apply .rsc-text-large;
+  }
+}
+
+/* XL settings for the resource text container */
+@screen xl {
+  #resources-container div.rsc-outer-container:nth-child(6) .rsc-text {
+    @apply .rsc-text-large;
+  }
+  #resources-container div.rsc-outer-container:nth-child(7) .rsc-text {
+    @apply .rsc-text-medium;
+  }
+}
+
+/* The two screen queries below are just defining the lineClamp
+point for the different variants of resources, large or medium. */
+
+/* Define the large and medium variants */
+.rsc-body-medium {
+  @apply .lc-8;
+}
+.rsc-body-large {
+  @apply .lc-12;
+}
+.rsc-body {
+  @apply .lc .lc-8 .text-sm .text-grey-darkest .pt-2;
+}
+
+/* Large settings for the resource body container */
+@screen lg {
+  #resources-container div.rsc-outer-container:nth-child(1) .rsc-body {
+    @apply .rsc-body-large;
+  }
+  #resources-container div.rsc-outer-container:nth-child(7) .rsc-body {
+    @apply .rsc-body-large;
+  }
+}
+
+/* XL settings for the resource body container */
+@screen xl {
+  #resources-container div.rsc-outer-container:nth-child(6) .rsc-body {
+    @apply .rsc-body-large;
+  }
+  #resources-container div.rsc-outer-container:nth-child(7) .rsc-body {
+    @apply .rsc-body-medium;
+  }
+}

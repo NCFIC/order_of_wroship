@@ -1,0 +1,211 @@
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>BBC Order of Worship</title>
+	<link rel="icon" href="images/favicon.png">
+	<link rel="icon" href="images/favicon.png" type="image/x-icon"/>
+	<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon"/>
+	<link rel="apple-touch-icon" href="images/favicon.png">    
+
+	<!-- Bring in my google fonts -->
+	<!-- <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Noto+Sans|Noto+Serif|Quicksand|Roboto|Slabo+27px|Vollkorn|Montserrat" rel="stylesheet"> -->
+	<link href="https://fonts.googleapis.com/css?family=Noto+Serif|Montserrat:400,400i,500,500i,600,600i,700,700i,800,800i" rel="stylesheet">
+
+
+	<!-- Jquery -->
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+	<!-- <script src="dist/js/jquery.mobile.customjs"></script> -->
+
+	<!-- Load jQuery.fullCalendar plugin-->
+	<link rel='stylesheet' href='dist/js/fullcalendar-3.8.0/fullcalendar.css' />
+	<script src='dist/js/fullcalendar-3.8.0/lib/jquery.min.js'></script>
+	<script src='dist/js/fullcalendar-3.8.0/lib/moment.min.js'></script>
+	<script src='dist/js/fullcalendar-3.8.0/fullcalendar.js'></script>
+
+	<!-- Sweet Alert -->
+	<script src="https://unpkg.com/sweetalert2@7.2.0/dist/sweetalert2.all.js"></script>
+
+	<!-- Font Awesome (for icons) -->
+	<!-- <script src="https://use.fontawesome.com/88d4daa47d.js"></script> -->
+	<!-- <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet"> -->
+	<link href="dist/css/fontawesome-all.css" rel="stylesheet" type="text/css">
+
+	<!-- Vue -->
+	<!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+	<script src="dist/js/vue.js"></script>
+
+	<!-- Insert Tailwind Style Sheet -->
+	<link href="dist/css/styles.css?v=2.3" rel="stylesheet" type="text/css">
+
+	<!-- Insert Journey Style Sheet -->
+	<link href="dist/css/journey.css?v=2.3" rel="stylesheet" type="text/css">
+
+	<style>
+		.page {
+			width: 8.5in;
+			height: 11in;
+		}
+
+		@media print {
+			.page {
+				width: 100%;
+				top: 0;
+				left: 0;
+				margin: 0;
+			}
+
+			a {
+				text-decoration: none;
+			}
+		}
+
+		a {
+			/*text-decoration: none;*/
+			color: inherit;
+		}
+	</style>
+
+</head>
+
+<!-- The important relative position on the body fixed the green bug from sweetalert... -->
+<body class="bg-grey-900 text-grey-900 font-sans leading-normal antialiased">
+	<div id="app" class="flex flex-grow w-full min-h-screen">
+
+		<!-- This is the main container -->
+		<div id="page-container" class="w-full flex flex-col flex-grow justify-center items-center">
+			<!-- This is a page -->
+			<div class="bg-white page my-16">
+
+				<!-- For each part... -->
+				<template v-for="part, index in orderOfWorship.parts">
+
+					<!-- Header -->
+					<church-header v-if="part.type == 'church-header'" :date="orderOfWorship.date"></church-header>
+
+					<!-- Opening -->
+					<opening v-if="part.type == 'opening'" :opening="part"></opening>
+
+					<!-- Hymns -->
+					<hymns v-if="part.type == 'hymns'" 
+						:hymns="part.hymns" 
+						:hymns-list="hymns"
+						:assigned-to="part.assignedTo">
+					</hymns>
+
+					<!-- Teaching -->
+					<teaching v-if="part.type == 'teaching'" :teaching="part"></teaching>
+
+					<!-- Prayer -->
+					<prayer v-if="part.type == 'prayer'" :prayers="part.prayers"></prayer>
+
+					<!-- SLBC -->
+					<slbc v-if="part.type == 'slbc'" :slbc="part"></slbc>
+
+					<!-- Supper -->
+					<supper v-if="part.type == 'supper'" :supper="part"></supper>
+
+					<!-- Closing -->
+					<closing v-if="part.type == 'closing'" :closing="part"></closing>					
+
+					<!-- Divider -->
+					<divider 
+						:size="getDividerSize(index)" 
+						v-if="canShowDivider(index)">	
+					</divider>
+					
+				</template>
+
+			</div>
+		</div>
+
+	</div>
+</body>
+
+<script src="dist/js/hymns.js?v=2.3"></script>
+<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slideout/1.0.1/slideout.js"></script>
+
+<script>
+var slideout = new Slideout({
+	'panel': document.getElementById('panel'),
+	'menu': document.getElementById('menu'),
+	'padding': 360,
+	'tolerance': 70,
+	'side': 'right'
+});
+</script>
+
+<script>
+	var refTagger = {
+		settings: {
+			bibleVersion: "KJV"			
+		}
+	};
+	(function(d, t) {
+		var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
+		g.src = "//api.reftagger.com/v2/RefTagger.js";
+		s.parentNode.insertBefore(g, s);
+	}(document, "script"));
+</script>
+
+<!-- Make the Hymns Clickable -->
+<script>
+	function linkHymns() {
+		$(".hymn").each(function() {
+			// Find the number and get rid of the # sign
+			var hymnNumber = $(this).text().replace("#", "").trim()
+			// Wrap the number and title in an a tag
+			$(this).wrapInner('<a href="https://www.opc.org/' + hymns[hymnNumber]['link'] + '" target="_blank" class="no-underline"></a>');
+			var title = $(this).parent().find(".main-text")
+			title.wrapInner('<a href="https://www.opc.org/' + hymns[hymnNumber]['link'] + '" target="_blank"></a>');
+		})
+	}
+
+	function breakPages() {
+		$(".page").each(function() {
+			// Defind some variables we'll need...
+			var childShouldBreakPage = false
+			// Find the bottom of the page
+			var pageHeight = $(this).outerHeight()
+			var pageTop = $(this).offset().top
+			var pageBottom = pageTop + pageHeight
+			// console.log("pageBottom:" + pageBottom)
+			// For each child...
+			$(this).children().each(function() {
+				// If we haven't already found a child that's going to break the page...
+				if (!childShouldBreakPage) {
+					// Find the bottom of the child
+					var childHeight = $(this).outerHeight(true)
+					var childTop = $(this).offset().top
+					var childBottom = childTop + childHeight
+					// console.log("childBottom:" + childBottom)
+					// If the child goes under the page
+					if (childBottom > pageBottom) {
+						// Mark this as true
+						childShouldBreakPage = true;
+						// Since this is the first instance, make another page.
+						$("#page-container").append('<div class="bg-white page mb-16 pt-16"></div>')
+					}
+				}
+				// If this child should be on the next page...
+				if (childShouldBreakPage) {
+					// Move this child into the new page.
+					$(".page").last().append($(this))
+				}
+
+			})
+		});
+	}
+</script>
+
+<script src="dist/js/scripts-min.js?v=2.3"></script>
+
+</html>
