@@ -11,7 +11,7 @@ var ChurchHeader = {
 
 	// Opening Component
 };var Opening = {
-	props: ["opening"],
+	props: ["reference", "text"],
 	template: `
 		<!-- Opening Stuff -->
 		<div class="w-full p-8 flex flex-col justify-center items-center">
@@ -27,14 +27,14 @@ var ChurchHeader = {
 			<!-- Item -->
 			<div class="flex-col justify-center items-center pt-4">
 				<div class="main-text text-center">Opening Prayer</div>
-				<div class="sub-text text-center">{{ opening.prayer }}</div>
+				<div class="sub-text text-center">{{ assign() }}</div>
 			</div>
 			<!-- Item -->
 			<div class="flex-col justify-center items-center pt-4">
 				<div class="main-text text-center">Opening Sentence</div>
-				<div class="sub-text text-center">{{ opening.sentence.scripture.reference }} ({{ opening.sentence.assignedTo }})</div>
+				<div class="sub-text text-center">{{ reference }} (Steve Hopkins)</div>
 				<div class="italic text-xs text-center px-12 pt-8">
-					“{{ opening.sentence.scripture.text }}”
+					“{{ text }}”
 				</div>
 			</div>
 		</div>
@@ -43,30 +43,30 @@ var ChurchHeader = {
 
 // Hymns Component
 var Hymns = {
-	props: ["hymns", "hymnsList", "assignedTo"],
+	props: ["hymns", "hymnsList"],
 	template: `
 		<!-- Singing  -->
 		<div class="w-full p-8 flex flex-col justify-center items-center">
 			<!-- Item -->
-			<div class="flex-col justify-center items-center" v-if="hymns[0].assignedTo != null">
+			<div class="flex-col justify-center items-center pb-4" v-if="hymns.length > 1">
 				<div class="main-text text-center">Congregational Singing</div>
-				<div class="sub-text text-center">{{ assignedTo }}</div>
+				<div class="sub-text text-center">{{ assign(true) }}</div>
 			</div>
 			<!-- Songs -->
 			<div class="">
 				<!-- Song -->
-				<div class="flex items-center w-full justify-left pt-4" v-for="hymn in hymns">
+				<div class="flex items-center w-full justify-left" :class="{'pt-4' : index}" v-for="hymn, index in hymns">
 					<div class="text-5xl pr-4 text-grey-300 hymn">
-						<a :href="'https://www.opc.org/' + hymnsList[hymn.number]['link']" target="_blank" class="no-underline" >#{{ hymn.number }}</a>
+						<a :href="'https://www.opc.org/' + hymnsList[hymn]['link']" target="_blank" class="no-underline" >#{{ hymn }}</a>
 					</div>
 					<div class="flex flex-col">
 						<div class="main-text">
-							<a :href="'https://www.opc.org/' + hymnsList[hymn.number]['link']" target="_blank">
-								{{ hymnsList[hymn.number]['name'] }}
+							<a :href="'https://www.opc.org/' + hymnsList[hymn]['link']" target="_blank">
+								{{ hymnsList[hymn]['name'] }}
 							</a>
 						</div>
-						<div class="sub-text" v-if="hymns[0].assignedTo != null">{{ hymn.assignedTo }} - Scripture</div>
-						<div class="sub-text" v-else>{{ assignedTo }}</div>
+						<div class="sub-text" v-if="hymns.length > 1">{{ assign() }} - Scripture</div>
+						<div class="sub-text" v-else>{{ assign(true) }}</div>
 					</div>
 				</div>
 			</div>
@@ -76,16 +76,16 @@ var Hymns = {
 
 // Teaching Component
 var Teaching = {
-	props: ["teaching"],
+	props: ["scripture", "title", "assignedTo", "kind"],
 	template: `
 		<!-- Teaching  -->
 		<div class="w-full p-8 flex flex-col justify-center items-center">
 			<!-- Item -->
 			<div class="flex-col justify-center items-center">
-				<div class="main-text text-center">{{ teaching.kind }} - {{ teaching.scripture.reference }}</div>
-				<div class="sub-text text-center">{{ teaching.assignedTo }}</div>
+				<div class="main-text text-center">{{ kind }} - {{ scripture }}</div>
+				<div class="sub-text text-center">{{ assignedTo }}</div>
 				<div class="italic text-sm text-center px-12 pt-4">
-					“{{ teaching.scripture.text }}”
+					“{{ title }}”
 				</div>
 			</div>
 		</div>
@@ -106,7 +106,7 @@ var Prayer = {
 			<div class="flex-col justify-center items-center pt-4">
 				<ul class="p-0">
 					<li v-for="prayer in prayers">
-						<span class="text-sm">{{ prayer.description }}</span><span> - </span><span class="sub-text">{{ prayer.assignedTo }}</span>
+						<span class="text-sm">{{ prayer }}</span><span> - </span><span class="sub-text">{{ assign() }}</span>
 					</li>
 				</ul>
 			</div>
@@ -117,25 +117,40 @@ var Prayer = {
 	`
 };
 
+// Corporate Reading
+var CorporateReading = {
+	props: ["corporateReading"],
+	template: `
+		<!-- Corporate Reading -->
+		<div class="w-full p-8 flex flex-col justify-center items-center">
+			<!-- Item -->
+			<div class="flex-col justify-center items-center">
+				<div class="main-text text-center">Corporate Reading</div>
+				<div class="sub-text text-center">{{ corporateReading }} - {{ assign() }}</div>
+			</div>
+		</div>
+	`
+};
+
 // SLBC Component
 var SLBC = {
-	props: ["slbc"],
+	props: ["slbcChapter", "slbcParagraph", "slbcData"],
 	template: `
 		<!-- SLBC -->
 		<div class="w-full p-8 flex flex-col justify-center items-center">
 			<!-- Item -->
 			<div class="flex-col justify-center items-center">
 				<div class="main-text text-center">Second London Baptist Confession of 1689</div>
-				<div class="sub-text text-center">Chapter {{ slbc.chapter }}: {{ slbc.chapterName }} (Paragraph {{ slbc.paragraph }}) - {{ slbc.assignedTo }}</div>
+				<div class="sub-text text-center">Chapter {{ slbcChapter }}: {{ slbcData.chapters[slbcChapter].title }} (Paragraph {{ slbcParagraph }}) - {{ assign() }}</div>
 				<div class="italic text-xs text-center px-12 pt-4">
-					In the execution of this power wherewith He is so intrusted, the Lord Jesus calleth out of the world unto Himself, through the ministry of his word, by His Spirit, those that are given unto Him by his Father, that they may walk before Him in all the ways of obedience, which He prescribeth to them in His word. Those thus called, He commandeth to walk together in particular societies, or churches, for their mutual edification, and the due performance of that public worship, which He requireth of them in the world.
+					{{ slbcData.chapters[slbcChapter].paragraphs[slbcParagraph].text }}
 				</div>
 			</div>
 			<!-- Item -->
 			<div class="flex-col justify-center items-center pt-4">
 				<ul class="p-0">
-					<li v-for="reference in slbc.references">
-						<span class="text-sm">{{ reference.reference }}</span><span> - </span><span class="sub-text">{{ reference.assignedTo }}</span>
+					<li v-for="reference in slbcData.chapters[slbcChapter].paragraphs[slbcParagraph].citations">
+						<span class="text-sm">{{ reference }}</span><span> - </span><span class="sub-text">{{ assign() }}</span>
 					</li>
 				</ul>
 			</div>
@@ -183,20 +198,21 @@ var Supper = {
 
 // Closing
 var Closing = {
-	props: ["closing"],
+	props: ["closingChorus"],
 	template: `
 		<!-- Closing Stuff -->
 		<div class="w-full p-8 flex flex-col justify-center items-center">
 			<!-- Item -->
 			<div class="flex-col justify-center items-center">
 				<div class="main-text text-center">Closing Chorus</div>
-				<div class="italic text-sm text-center px-12 pt-4 text-grey-500" html="closing.chorus">
+				<div class="italic text-sm text-center px-12 pt-4 text-grey-500">
+					{{ closingChorus }}
 				</div>
 			</div>
 			<!-- Item -->
 			<div class="flex-col justify-center items-center pt-4">
 				<div class="main-text text-center">Closing Prayer, blessing of fellowship meal</div>
-				<div class="sub-text text-center">{{ closing.prayer.assignedTo }}</div>
+				<div class="sub-text text-center">{{ assign() }}</div>
 			</div>
 			<!-- Item -->
 			<div class="flex-col justify-center items-center pt-16">
@@ -211,9 +227,51 @@ var Divider = {
 	props: ["size"],
 	template: `
 		<!-- Divider -->
-		<div class="w-full flex justify-center">
+		<div class="w-full flex justify-center py-2">
 			<div class="border-b-2 border-grey-50" :class="'w-' + size"></div>
 		</div>
+	`
+};
+
+// Scripture
+var Scripture = {
+	props: ["scriptureIsLoading", "returnedScripture"],
+	template: `
+        <!-- Loading Spinner -->
+        <center v-if="scriptureIsLoading" class="py-8"><div class="loading"></div></center>
+        <!-- Start bible output app -->
+        <div class="py-8" id="bible-output" v-else>
+            <ul v-if="returnedScripture.length" id="bible-list" class="list-reset overflow-hidden">
+                <!-- For each passage -->
+                <li v-for="(request, key) in returnedScripture" class="relative">
+                    <!-- For each book in the request -->
+                    <template v-for="(books, key) in request" v-if="!isNaN(key)">
+                        <!-- For book Name in books -->
+                        <template v-for="(book, bookName) in books">
+                            <!-- For each chapter in the book -->
+                            <template v-for="(chapter, chapterNumber, chapterIndex) in book">
+                                <!-- For each verse in the chapter -->
+                                <template v-for="(verse, verseNumber, verseIndex) in chapter">
+
+                                    <!-- Output the verse -->
+                                    <span 
+                                        :verse-name="[ bookName + ' ' + (Number(chapterNumber)+1) + ':' + verseNumber ]"
+                                        :book="[ bookName ]"
+                                        :chapter="[ (Number(chapterNumber)+1) ]"
+                                        :verse="[ verseNumber ]"
+                                        class="verse selection-green"
+                                        ><em v-if="verseIndex > 0" class="selection-green"
+                                        >{{ verseNumber }} </em
+                                        >{{ verse }}
+                                    </span>
+
+                                </template>
+                            </template>
+                        </template>
+                    </template>
+                </li>
+            </ul>
+        </div>
 	`
 };
 
@@ -222,119 +280,68 @@ var app = new Vue({
 	el: "#app",
 	data: {
 		hymns: window.hymns,
-		orderOfWorship: {
-			"date": moment().day(7).format("MMMM Do, YYYY"),
-			"men": {
-				"Steve Hopkins": {
-					"pastor": true,
-					"singing": true
-				},
-				"Don Stubblefield": {
-					"pastor": true,
-					"singing": false
-				}
-			},
-			"parts": [{
-				"type": "church-header"
+		showPages: false,
+		assignmentIncrement: 0,
+		musicIncrement: 0,
+		currentQuestion: 1,
+		scriptureSearch: null,
+		openingSentence: null,
+		openingSentenceText: null,
+		donScripture: null,
+		donTitle: null,
+		corporateReading: null,
+		steveScripture: null,
+		steveTitle: null,
+		scriptureIsLoading: false,
+		returnedScripture: [],
+		selectedHymns: [],
+		newHymn: null,
+		prayerTopics: [],
+		newPrayer: null,
+		slbcChapter: 1,
+		slbcParagraph: 1,
+		closingChorus: null,
+		slbc: slbc,
+		nextSunday: moment().day(7).format("MMMM Do, YYYY"),
+		churchProfile: {
+			"men": [{
+				"name": "Steve Hopkins",
+				"canLeadMusic": false,
+				"elder": true,
+				"image": null,
+				'attending': false
 			}, {
-				"type": "opening",
-				"announcements": "Steve Hopkins",
-				"prayer": "Josh Glasscock",
-				"sentence": {
-					"scripture": {
-						"reference": "Psalm 81:1",
-						"text": "Sing aloud unto God our Strength: make a joyful noise unto the God of Jacob."
-					},
-					"assignedTo": "Steve Hopkins"
-				}
+				"name": "Don Stubblefield",
+				"canLeadMusic": false,
+				"elder": true,
+				"image": null,
+				'attending': false
 			}, {
-				"type": "hymns",
-				"assignedTo": "Eric Bechler",
-				"hymns": [{
-					"number": "400",
-					"assignedTo": "Phil Long"
-				}, {
-					"number": "216",
-					"assignedTo": "Keith Howington"
-				}]
+				"name": "Eric Bechler",
+				"canLeadMusic": true,
+				"elder": false,
+				"image": null,
+				'attending': false
 			}, {
-				"type": "teaching",
-				"kind": "Teaching",
-				"assignedTo": "Don Stubblefield",
-				"scripture": {
-					"reference": "Ephesians 5:4",
-					"text": "Neither filthiness nor foolish talking"
-				}
+				"name": "Phil Long",
+				"canLeadMusic": true,
+				"elder": false,
+				"image": null,
+				'attending': false
 			}, {
-				"type": "prayer",
-				"prayers": [{
-					"description": "Prayer for the sick ",
-					"assignedTo": "Phil Long"
-				}, {
-					"description": "Prayer for local, state and national leaders ",
-					"assignedTo": "Eric Bechler"
-				}, {
-					"description": "Prayer for revival ",
-					"assignedTo": "Joshua Glasscock"
-				}, {
-					"description": "Prayer for persecuted brethren ",
-					"assignedTo": "Keith Howington"
-				}, {
-					"description": "Prayer of imprecation ",
-					"assignedTo": "Steve Hopkins"
-				}]
+				"name": "Josh Glasscock",
+				"canLeadMusic": false,
+				"elder": false,
+				"image": null,
+				'attending': false
 			}, {
-				"type": "hymns",
-				"assignedTo": "Phil Long",
-				"hymns": [{
-					"number": "188",
-					"assignedTo": null
-				}]
-			}, {
-				"type": "slbc",
-				"assignedTo": "Eric Bechler",
-				"chapter": "26",
-				"chapterName": "Of the Church",
-				"paragraph": "5",
-				"references": [{
-					"reference": "John 10:16",
-					"assignedTo": "Phil Long"
-				}, {
-					"reference": "John 12:32",
-					"assignedTo": "Keith Howington"
-				}, {
-					"reference": "Mt. 28:20",
-					"assignedTo": "Joshua Glasscock"
-				}, {
-					"reference": "Mt. 18:15-20",
-					"assignedTo": "Eric Bechler"
-				}]
-			}, {
-				"type": "hymns",
-				"assignedTo": "Eric Bechler",
-				"hymns": [{
-					"number": "77",
-					"assignedTo": null
-				}]
-			}, {
-				"type": "teaching",
-				"kind": "Sermon",
-				"assignedTo": "Steve Hopkins",
-				"scripture": {
-					"reference": "2 Peter 2:10-16",
-					"text": "(They) shall receive the reward of unrighteousness"
-				}
-			}, {
-				"type": "supper",
-				"leader": "Steve Hopkins",
-				"backup": "Don Stubblefield"
-			}, {
-				"type": "closing",
-				"chorus": "Trust and obey, for there's no other way<br>To be happy in Jesus, but to trust and obey. Amen!",
-				"prayer": {
-					"assignedTo": "Keith Howington"
-				}
-			}]
+				"name": "Keith Howington",
+				"canLeadMusic": false,
+				"elder": false,
+				"image": null,
+				'attending': false
+			}],
+			"prayers": ["Prayer for the sick ", "Prayer for local, state and national leaders ", "Prayer for revival ", "Prayer for persecuted brethren ", "Prayer of imprecation "]
 		}
 	},
 	components: {
@@ -344,11 +351,58 @@ var app = new Vue({
 		teaching: Teaching,
 		divider: Divider,
 		prayer: Prayer,
+		'corporate-reading': CorporateReading,
 		slbc: SLBC,
 		supper: Supper,
-		closing: Closing
+		closing: Closing,
+		scripture: Scripture
+	},
+	watch: {
+		// whenever question changes, this function will run
+		scriptureSearch: function () {
+			this.getScripture();
+		},
+		currentQuestion: function () {
+			Vue.nextTick(function () {
+				breakPages();
+			});
+		},
+		currentQuestion: function () {
+			// Here we're going to redefine the scripture search based on what question is selected...
+			this.returnedScripture = [];
+
+			// If it's the second question, opening sentence
+			if (this.currentQuestion == 2) {
+				this.scriptureSearch = this.openingSentence;
+				// If it's the 4th question, it's Don's Scripture
+			} else if (this.currentQuestion == 4) {
+				this.scriptureSearch = this.donScripture;
+				// If it's the 6th question, it's Corporate Reading
+			} else if (this.currentQuestion == 5) {
+				this.scriptureSearch = this.corporateReading;
+				// If it's the 8th question, it's Steve's Scripture
+			} else if (this.currentQuestion == 7) {
+				this.scriptureSearch = this.steveScripture;
+			} else if (this.currentQuestion == 9) {
+				Vue.nextTick(function () {
+					setTimeout(function () {
+						breakPages();
+					}, 300);
+				});
+			}
+		}
 	},
 	methods: {
+		shuffle(a) {
+			var j, x, i;
+			for (i = a.length - 1; i > 0; i--) {
+				j = Math.floor(Math.random() * (i + 1));
+				x = a[i];
+				a[i] = a[j];
+				a[j] = x;
+			}
+			return a;
+		},
 		getDividerSize: function (index) {
 			if (this.orderOfWorship.parts[index].type == 'teaching') {
 				return 'full';
@@ -366,18 +420,120 @@ var app = new Vue({
 			if (this.orderOfWorship.parts.length != index + 1 && this.orderOfWorship.parts[index].type != 'church-header') {
 				return true;
 			}
-		}
+		},
+		addHymn: function () {
+			if (this.selectedHymns.length == 4) {
+				swal("You've already added four hymns!");
+				return false;
+			}
+			if (!isNaN(this.newHymn) && Number(this.newHymn) <= 730 && Number(this.newHymn) >= 1) {
+				this.selectedHymns.push(this.newHymn);
+				this.newHymn = null;
+			} else {
+				swal("Please enter JUST a number between 1 and 730");
+			}
+		},
+		addPrayer: function () {
+			this.prayerTopics.push(this.newPrayer);
+			this.newPrayer = null;
+		},
+		saveAnswerAndContiunue: function () {
+
+			// If it's the second question, opening sentence
+			if (this.currentQuestion == 2) {
+				this.openingSentence = this.scriptureSearch;
+				this.openingSentenceText = $("#bible-output").text().trim();
+				// If it's the 4th question, it's Don's Scripture
+			} else if (this.currentQuestion == 4) {
+				this.donScripture = this.scriptureSearch;
+				// this.donScriptureText = $("#bible-output").text().trim()
+				// If it's the 6th question, it's Corporate Reading
+			} else if (this.currentQuestion == 5) {
+				this.corporateReading = this.scriptureSearch;
+				// If it's the 8th question, it's Steve's Scripture
+			} else if (this.currentQuestion == 7) {
+				this.steveScripture = this.scriptureSearch;
+				// this.steveScriptureText = $("#bible-output").text().trim()
+			}
+
+			this.scriptureSearch = null;
+			this.currentQuestion += 1;
+		},
+		getScripture: _.debounce(function () {
+			// Define the vue object
+			var vm = this;
+			var ref = vm.scriptureSearch;
+			// If there's actually a search...
+			if (ref) {
+
+				console.log("Getting: " + ref);
+				// Make the loader appear
+				vm.scriptureIsLoading = true;
+				// Query the script for the verse
+				$.ajax({
+					url: "https://read2018.com/utilities/fetch_verses.py",
+					type: "post",
+					data: {
+						"requested_selection": ref,
+						"version": "kjv",
+						"timestamp": Date.now()
+					},
+					success: function (response) {
+						// Hide the loader
+						vm.scriptureIsLoading = false;
+						// Only update if it's the latest request
+						// Update Vue
+						vm.returnedScripture = response;
+					}
+				});
+				// If there was no search...
+			} else {
+				vm.returnedScripture = [];
+			}
+		},
+		// This is the number of milliseconds we wait for the
+		// user to stop typing.
+		1250)
 	},
-	mounted: function () {
-		breakPages();
-		setTimeout(function () {
-			breakPages();
-		}, 300);
-		setTimeout(function () {
-			breakPages();
-		}, 600);
-		setTimeout(function () {
-			breakPages();
-		}, 900);
+	computed: {
+		attendingMen: function () {
+			var attendingMen = [];
+			$.each(this.churchProfile.men, function (key, man) {
+				if (man.attending) {
+					attendingMen.push(man);
+				}
+			});
+			return this.shuffle(attendingMen);
+		},
+		attendingMusicMen: function () {
+			var attendingMusicMen = [];
+			$.each(this.churchProfile.men, function (key, man) {
+				if (man.attending && man.canLeadMusic) {
+					attendingMusicMen.push(man);
+				}
+			});
+			return this.shuffle(attendingMusicMen);
+		}
 	}
 });
+
+// Make this a global function
+Vue.prototype.assign = function (music = false) {
+
+	if (music) {
+		if (app.musicIncrement >= app.attendingMusicMen.length - 1) {
+			app.musicIncrement = 0;
+		} else {
+			app.musicIncrement += 1;
+		}
+		return app.attendingMusicMen[app.musicIncrement]['name'];
+	} else {
+
+		if (app.assignmentIncrement >= app.attendingMen.length - 1) {
+			app.assignmentIncrement = 0;
+		} else {
+			app.assignmentIncrement += 1;
+		}
+		return app.attendingMen[app.assignmentIncrement]['name'];
+	}
+};

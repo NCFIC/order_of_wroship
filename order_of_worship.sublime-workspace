@@ -1,0 +1,1016 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"bib",
+				"bible-output"
+			],
+			[
+				"cor",
+				"corporateReading"
+			],
+			[
+				"openin",
+				"openingSentence"
+			],
+			[
+				"scr",
+				"scriptureSearch"
+			],
+			[
+				"order",
+				"orderOfWorship"
+			],
+			[
+				"break",
+				"breakPages"
+			],
+			[
+				"w-",
+				"w-full"
+			],
+			[
+				"new",
+				"newHymn"
+			],
+			[
+				"sele",
+				"selectedHymns"
+			],
+			[
+				"text-",
+				"text-center"
+			],
+			[
+				"nega",
+				"negativeMargin"
+			],
+			[
+				"font",
+				"font-bold"
+			],
+			[
+				"border-",
+				"border-grey-100"
+			],
+			[
+				"selectedResour",
+				"selectedResourceFilter"
+			],
+			[
+				"text-gre",
+				"text-grey-900"
+			],
+			[
+				"text-grey",
+				"text-grey-500"
+			],
+			[
+				"limi",
+				"limitBookContainerToRows"
+			],
+			[
+				"justi",
+				"justify-start"
+			],
+			[
+				"just",
+				"justify-center"
+			],
+			[
+				"bg-gre",
+				"bg-grey-50"
+			],
+			[
+				"bg-",
+				"bg-grey-50"
+			],
+			[
+				"background",
+				"background-image"
+			],
+			[
+				"tex",
+				"text-center"
+			],
+			[
+				"text-ncfic-green",
+				"text-ncfic-green-700"
+			],
+			[
+				"justify",
+				"justify-end"
+			],
+			[
+				"row",
+				"rowHeight"
+			],
+			[
+				"jus",
+				"justify-center"
+			],
+			[
+				"opaci",
+				"opacity-75"
+			],
+			[
+				"body",
+				"bodyHeight"
+			],
+			[
+				"add",
+				"addClass"
+			],
+			[
+				"fix",
+				"fixBookPosition"
+			],
+			[
+				"bookContainerBo",
+				"bookContainerBottomPadding"
+			],
+			[
+				"bookCo",
+				"bookContainerBottom"
+			],
+			[
+				"addTo",
+				"addToCartBottom"
+			],
+			[
+				"curre",
+				"currentPage"
+			],
+			[
+				"searchContainer",
+				"searchContainerHeight"
+			],
+			[
+				"scroll",
+				"scrollValue"
+			],
+			[
+				"searchO",
+				"searchObjectTop"
+			],
+			[
+				"first",
+				"firstObjectTop"
+			],
+			[
+				"active",
+				"activeSearchObjectIndex"
+			],
+			[
+				"justif",
+				"justify-center"
+			],
+			[
+				"text-ncfic",
+				"text-ncfic-green-700"
+			],
+			[
+				"bg-ncfic",
+				"bg-ncfic-blue-lightest"
+			],
+			[
+				"autho",
+				"author_id"
+			],
+			[
+				"buy",
+				"buy_order"
+			],
+			[
+				"stock",
+				"stock_instrument"
+			],
+			[
+				"guess",
+				"guessed_address"
+			],
+			[
+				"targ",
+				"targetMoment"
+			],
+			[
+				"dis",
+				"displayTitle"
+			],
+			[
+				"blog",
+				"blog_date"
+			],
+			[
+				"curren",
+				"current_date"
+			],
+			[
+				"formatted",
+				"formatted_address"
+			],
+			[
+				"claim",
+				"claim_address"
+			],
+			[
+				"inside",
+				"insideList"
+			],
+			[
+				"temp",
+				"temp_class"
+			],
+			[
+				"tem",
+				"temp_class"
+			],
+			[
+				"list",
+				"list_class"
+			],
+			[
+				"nex",
+				"next_class"
+			],
+			[
+				"curr",
+				"current_class"
+			],
+			[
+				"latest",
+				"latest_class"
+			],
+			[
+				"has",
+				"has_ol2"
+			],
+			[
+				"parsed",
+				"parsed_sections"
+			],
+			[
+				"para",
+				"paragraph_string"
+			],
+			[
+				"p_",
+				"p_style"
+			],
+			[
+				"p_style",
+				"paragraph_styles"
+			],
+			[
+				"over",
+				"overview_string"
+			],
+			[
+				"hide",
+				"hideInsightsToolbar"
+			],
+			[
+				"ol",
+				"oldTestamentSelected"
+			],
+			[
+				"ot",
+				"oldTestamentSelected"
+			],
+			[
+				"current",
+				"currentPassages"
+			],
+			[
+				"passage",
+				"passageIsLoading"
+			],
+			[
+				"dates",
+				"datesRead"
+			],
+			[
+				"getc",
+				"getSelectedDateString"
+			],
+			[
+				"date",
+				"dateString"
+			],
+			[
+				"next",
+				"nextTick"
+			],
+			[
+				"questions",
+				"questionsHidden"
+			],
+			[
+				"insights",
+				"insightsHidden"
+			],
+			[
+				"desire",
+				"desiredFontSize"
+			],
+			[
+				"set",
+				"setCookie"
+			],
+			[
+				"time",
+				"timeslotCount"
+			],
+			[
+				"prin",
+				"print_r"
+			],
+			[
+				"json",
+				"json_encode"
+			],
+			[
+				"past",
+				"past_week"
+			],
+			[
+				"tar",
+				"target_day"
+			],
+			[
+				"targe",
+				"target_month"
+			],
+			[
+				"text",
+				"text-white"
+			],
+			[
+				"researchen",
+				"researchEntries"
+			],
+			[
+				"fam",
+				"familyId"
+			],
+			[
+				"s",
+				"success"
+			],
+			[
+				"pass",
+				"passwordless"
+			],
+			[
+				"values",
+				"valuesToValidate"
+			],
+			[
+				"promp",
+				"promptForSignUp"
+			],
+			[
+				"entry",
+				"entryTypeCorrect"
+			],
+			[
+				"mem",
+				"member_id"
+			],
+			[
+				"cook",
+				"setCookie"
+			],
+			[
+				"promptFor",
+				"promptForSignUp"
+			],
+			[
+				"fami",
+				"famiuly"
+			],
+			[
+				"cu",
+				"currentSection"
+			],
+			[
+				"prom",
+				"promptForLogin"
+			],
+			[
+				"sections",
+				"sectionsThatRequireLogin"
+			],
+			[
+				"in",
+				"inArray"
+			],
+			[
+				"get",
+				"getFamilyMembers"
+			],
+			[
+				"family",
+				"familyMembers"
+			],
+			[
+				"text-boo",
+				"text-book-black"
+			],
+			[
+				"cancel",
+				"cancelButtonClass"
+			],
+			[
+				"false",
+				"false"
+			],
+			[
+				"member",
+				"memberId"
+			],
+			[
+				"confirm",
+				"confirmButtonText"
+			],
+			[
+				"memb",
+				"memberId"
+			],
+			[
+				"research",
+				"researchEntries"
+			],
+			[
+				"verse",
+				"verseWasAlreadySelected"
+			],
+			[
+				"close",
+				"closestVerse"
+			],
+			[
+				"mark",
+				"markDayReadingCompleted"
+			],
+			[
+				"reading",
+				"readingCompletedResponses"
+			],
+			[
+				"abbre",
+				"monthAbbreviations"
+			],
+			[
+				"cur",
+				"cursor-pointer"
+			],
+			[
+				"remain",
+				"resetRemainder"
+			],
+			[
+				"full",
+				"fullcalendar"
+			],
+			[
+				"calenda",
+				"calendar-modal"
+			],
+			[
+				"index",
+				"indexOf"
+			],
+			[
+				"researc",
+				"research-content"
+			],
+			[
+				"Cap",
+				"Capita-Light"
+			],
+			[
+				"inline",
+				"inline-block"
+			],
+			[
+				"pre",
+				"pre-wrap"
+			],
+			[
+				"chapter",
+				"chapterNumber"
+			],
+			[
+				"book",
+				"bookAbbreviation"
+			],
+			[
+				"backg",
+				"background-size"
+			],
+			[
+				"bac",
+				"background"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "index.html",
+			"settings":
+			{
+				"buffer_size": 14592,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/js/custom/scripts.js",
+			"settings":
+			{
+				"buffer_size": 18985,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/js/addon/slbc.js",
+			"settings":
+			{
+				"buffer_size": 72644,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 354.0,
+		"last_filter": "js",
+		"selected_items":
+		[
+			[
+				"js",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"vue",
+				"Set Syntax: Vue Component"
+			],
+			[
+				"json",
+				"Set Syntax: JSON"
+			],
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
+			[
+				"less",
+				"Set Syntax: Less"
+			],
+			[
+				"bue",
+				"Build: Cancel"
+			],
+			[
+				"prett",
+				"HTMLPrettify"
+			],
+			[
+				"scs",
+				"Set Syntax: CSS"
+			],
+			[
+				"jsa",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"cue",
+				"Convert Case: Upper Case"
+			],
+			[
+				"prettier",
+				"Preferences: JsPrettier Settings - User"
+			],
+			[
+				"prettoer",
+				"Preferences: Package Control Settings – User"
+			],
+			[
+				"sass",
+				"Set Syntax: Sass"
+			],
+			[
+				"scss",
+				"Set Syntax: CSS"
+			],
+			[
+				"css",
+				"Set Syntax: CSS"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"jspre",
+				"Preferences: JsPrettier Settings - Default"
+			],
+			[
+				"package install ",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: Install",
+				"Package Control: Install Package"
+			],
+			[
+				"Packa",
+				"Install Package Control"
+			]
+		],
+		"width": 496.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/coltonneifert/Sites/ncfic-vue/index.js",
+		"/Users/coltonneifert/Sites/order_of_worship/hymns.js",
+		"/Users/coltonneifert/Sites/order_of_worship/index.html",
+		"/Users/coltonneifert/Sites/ncfic-vue/dist/css/styles.css",
+		"/Users/coltonneifert/Sites/ncfic-vue/src/js/custom/scripts.js",
+		"/Users/coltonneifert/Dropbox (NCFIC)/Journey Through the Bible/Links/JTTB Body/Frakes' Edits/11. 1 & 2 Chronicles.docx",
+		"/Users/coltonneifert/Dropbox (NCFIC)/Journey Through the Bible/Links/JTTB Body/Frakes' Edits/13. Ezra.docx",
+		"/Users/coltonneifert/Dropbox (NCFIC)/Journey Through the Bible/Links/JTTB Body/Frakes' Edits/14. Esther.docx",
+		"/Users/coltonneifert/Dropbox (NCFIC)/Journey Through the Bible/Links/JTTB Body/Frakes' Edits/14. Nehemiah.docx",
+		"/Users/coltonneifert/Dropbox (NCFIC)/Journey Through the Bible/Links/JTTB Body/Frakes' Edits/15. Job.docx",
+		"/Users/coltonneifert/Library/Caches/Transmit/3BA93883-73D9-4322-81F2-713C69496225/207.38.86.17/home/coltonncfic/webapps/ncfic_php56/public_html/system/user/templates/ncfic/blog.group/posts.html",
+		"/Users/coltonneifert/Sites/ncfic-vue/index.html",
+		"/Users/coltonneifert/Dropbox (NCFIC)/Journey Through the Bible/Links/JTTB Body/Overview Text/convert_to_html.py",
+		"/Users/coltonneifert/Sites/ncfic-vue/src/css/custom/custom_components.css",
+		"/Users/coltonneifert/Library/Caches/Transmit/4BDB19E9-9CF5-4336-96AB-8135D6C92A90/207.38.86.17/home/coltonncfic/webapps/ncfic_php56/public_html/system/user/templates/ncfic/events.group/register.html",
+		"/Users/coltonneifert/Desktop/php_test.php",
+		"/Users/coltonneifert/Desktop/POST.php",
+		"/Users/coltonneifert/Desktop/PUT.php",
+		"/Users/coltonneifert/Desktop/Badger.sh",
+		"/Users/coltonneifert/Library/Application Support/Sublime Text 3/Packages/User/JsPrettier.sublime-settings",
+		"/Users/coltonneifert/Library/Application Support/Sublime Text 3/Packages/JsPrettier/JsPrettier.sublime-settings",
+		"/Users/coltonneifert/Library/Application Support/Sublime Text 3/Packages/User/Package Control.sublime-settings",
+		"/Users/coltonneifert/Library/Caches/Transmit/C6A14394-B27A-4E78-8F1D-5955F8D0E1CA/neifert.xyz/home/coltonncfic/webapps/ncfic_php56/public_html/api/resources.py",
+		"/Users/coltonneifert/Sites/ncfic-vue/images/logo.svg",
+		"/Users/coltonneifert/Sites/ncfic/ncfic.sublime-project",
+		"/Users/coltonneifert/Sites/ncfic/images/logo.svg",
+		"/Users/coltonneifert/Sites/ncfic/src/css/custom/responsive_resources.css",
+		"/Users/coltonneifert/Sites/ncfic/src/css/custom_components.css",
+		"/Users/coltonneifert/Sites/ncfic/dist/css/styles.css",
+		"/Users/coltonneifert/Library/Caches/Transmit/5504F9FF-A1D2-4B89-8CB7-427D6A30C0A5/neifert.xyz/home/coltonncfic/webapps/ncfic_php56/public_html/api/resources.py",
+		"/Users/coltonneifert/Sites/ncfic/tailwind.js",
+		"/Users/coltonneifert/Sites/ncfic/src/css/styles.css",
+		"/Users/coltonneifert/Downloads/myrobinhood/Robinhood/Robinhood.py",
+		"/Users/coltonneifert/Library/Caches/Transmit/AD149BC5-103E-4010-9D8B-E67DD12EE43E/neifert.xyz/home/coltonncfic/webapps/ncfic_php56/public_html/api/resources.py",
+		"/Users/coltonneifert/Library/Caches/Transmit/EA3BA160-5F8D-4022-B9C5-357CC12F4E84/neifert.xyz/home/coltonncfic/webapps/neifert/ethan/badger/users.py",
+		"/Users/coltonneifert/Library/Caches/Transmit/60194CF6-D419-4867-9F63-FCC022DDA2DF/neifert.xyz/home/coltonncfic/webapps/neifert/ethan/badger/send_email.py",
+		"/Users/coltonneifert/Library/Caches/Transmit/DB72F2BE-8302-4ABB-B588-A572F46A956C/neifert.xyz/home/coltonncfic/webapps/ncfic_php56/public_html/system/user/templates/ncfic/layout.group/head.html",
+		"/Users/coltonneifert/Library/Caches/Transmit/3BFCCE01-A3EE-4340-97B6-EF6D4F5D2F8A/neifert.xyz/home/coltonncfic/webapps/ncfic_php56/public_html/system/user/templates/ncfic/layout.group/footer.html",
+		"/Users/coltonneifert/Library/Caches/Transmit/51126B28-FF87-421E-8E62-C11F338CDAB8/neifert.xyz/home/coltonncfic/webapps/ncfic_php56/public_html/system/user/templates/ncfic/layout.group/head.html",
+		"/Users/coltonneifert/Library/Caches/Transmit/A6299619-2B1C-40EF-97A9-2AEB1737D3C1/neifert.xyz/home/coltonncfic/webapps/ncfic_php56/public_html/system/user/templates/index.html",
+		"/Users/coltonneifert/Library/Caches/Transmit/C3C82E5F-423E-4C39-ADEC-F40594E8FC46/neifert.xyz/home/coltonncfic/webapps/ncfic_php56/public_html/styles/css/colton_playing.css",
+		"/Users/coltonneifert/Library/Caches/Transmit/54787318-E9F5-4D67-AEE4-2CEE9260B020/neifert.xyz/home/coltonncfic/webapps/ncfic_php56/public_html/system/user/templates/ncfic/layout.group/head.html",
+		"/Users/coltonneifert/Library/Caches/Transmit/8FC135A4-92F5-4AA3-B70D-9D28A794BC2C/neifert.xyz/home/coltonncfic/webapps/neifert/ethan/badger/send_email.py",
+		"/Users/coltonneifert/Library/Caches/Transmit/98511C5E-C155-4BC3-AD85-172E08A015BB/neifert.xyz/home/coltonncfic/webapps/neifert/ethan/badger/users.py",
+		"/Users/coltonneifert/Library/Caches/Transmit/2CD0A7CF-AD46-4FEC-AB50-0688398C008D/neifert.xyz/home/coltonncfic/webapps/neifert/ethan/badger/process_assignment.py",
+		"/Users/coltonneifert/Sites/read2018/index.html",
+		"/Users/coltonneifert/Library/Caches/Transmit/3AF16C22-4B29-4E9D-91B4-49DDE95567F9/neifert.xyz/home/coltonncfic/webapps/neifert/ethan/badger/run_tests.py",
+		"/Users/coltonneifert/Library/Caches/Transmit/BFE560CE-9F14-4289-9FE7-00B02BE09C3F/neifert.xyz/home/coltonncfic/webapps/neifert/ethan/badger/process_assignment.py",
+		"/Users/coltonneifert/Library/Caches/Transmit/D9A71D9A-842E-49C2-AD3A-F1835BE25DAD/neifert.xyz/home/coltonncfic/webapps/neifert/ethan/badger/test_email.py",
+		"/Users/coltonneifert/Library/Caches/Transmit/DE5939FC-ECA3-4D7D-B6D4-70B19DDD8374/neifert.xyz/home/coltonncfic/webapps/neifert/ethan/badger/users.py",
+		"/Users/coltonneifert/Library/Caches/Transmit/2DD5E05A-FA51-4C38-98E6-ACFC4FD70ED1/neifert.xyz/home/coltonncfic/webapps/neifert/ethan/badger/test_email.py",
+		"/Users/coltonneifert/Library/Caches/Transmit/66141395-3344-4B59-BB5A-9F35BD45CF3E/neifert.xyz/home/coltonncfic/webapps/neifert/ethan/badger/process_assignment.py",
+		"/Users/coltonneifert/Sites/ncfic/src/js/custom/scripts.js",
+		"/Users/coltonneifert/Library/Caches/Transmit/6CE892ED-AD7B-4924-B21E-95E74E3C5BDB/neifert.xyz/home/coltonncfic/webapps/ncfic_php56/public_html/system/user/addons/colton/views/mcp/orders/order.php",
+		"/Users/coltonneifert/Downloads/test2.py",
+		"/Users/coltonneifert/Downloads/test.py",
+		"/Users/coltonneifert/Dropbox (NCFIC)/Journey Through the Bible/Other Text/test.py",
+		"/Users/coltonneifert/Library/Caches/Transmit/73436F97-F5C1-47A2-A25D-A1A239FA949B/neifert.xyz/home/coltonncfic/webapps/neifert/ethan/badger/process_assignment copy.py",
+		"/Users/coltonneifert/Library/Caches/Transmit/F53CB197-8958-44A6-8B4E-539515B40480/neifert.xyz/home/coltonncfic/webapps/neifert/ethan/badger/Broke - WRIGHT,KARLINA   (insured) \r.txt",
+		"/Users/coltonneifert/Library/Caches/Transmit/052B2580-C717-414C-830A-26AA219D0742/neifert.xyz/home/coltonncfic/webapps/neifert/ethan/badger/Broke - DACOSTA,MAXINE   (insured) \r.txt",
+		"/Users/coltonneifert/Library/Caches/Transmit/3A3842F9-B13A-47EA-8624-5B0904F0C168/neifert.xyz/home/coltonncfic/webapps/ncfic_php56/public_html/api/store/ncfic_store_functions/ncfic_store_functions/colton_authorize/auth_recurring.py",
+		"/Users/coltonneifert/Library/Caches/Transmit/62D0A1C1-EEA0-4A5A-BE01-8D959475A3FE/neifert.xyz/home/coltonncfic/webapps/ncfic_php56/public_html/system/user/addons/colton/views/mcp/registrations/registration.php",
+		"/Users/coltonneifert/Library/Caches/Transmit/024E9DAB-FFA7-4F7C-BB8F-B6C70B0CC8EC/neifert.xyz/home/coltonncfic/webapps/neifert/ethan/badger/process_assignment copy.py",
+		"/Users/coltonneifert/Library/Caches/Transmit/7AFFED8F-D591-458A-9F9A-F9E2F5F2EF16/neifert.xyz/home/coltonncfic/webapps/ncfic_php56/public_html/php/approve_church.php",
+		"/Users/coltonneifert/Library/Caches/Transmit/DEAEBF3A-0550-458B-A46E-3D6CEFBA89DD/neifert.xyz/home/coltonncfic/webapps/ncfic_php56/public_html/system/user/templates/ncfic/events.group/email.html",
+		"/Users/coltonneifert/Library/Caches/Transmit/C5FB1502-58A3-461A-8A0C-8C543019692A/neifert.xyz/home/coltonncfic/webapps/neifert/ethan/badger/process_assignment.py",
+		"/Users/coltonneifert/Dropbox (NCFIC)/Journey Through the Bible/Other Text/01. Genesis.icml",
+		"/Users/coltonneifert/Dropbox (NCFIC)/Journey Through the Bible/Other Text/convert_to_html.py",
+		"/Users/coltonneifert/Library/Caches/Transmit/A91907BB-00E2-41D8-BA36-BAF8688F9B96/neifert.xyz/home/coltonncfic/webapps/ncfic/public_html/.htaccess",
+		"/Users/coltonneifert/Library/Caches/Transmit/474AF895-AF65-4AA7-A7B6-DABC4870DF4E/neifert.xyz/home/coltonncfic/webapps/read2018/utilities/sa_embed.py",
+		"/Users/coltonneifert/Downloads/read2018/dist/index.html",
+		"/Users/coltonneifert/Library/Caches/Transmit/FBE1A908-79FF-4F9D-B26F-D9DDADC49322/neifert.xyz/home/coltonncfic/webapps/uploads/test/test.php",
+		"/Users/coltonneifert/Library/Caches/Transmit/619D79BA-0F68-43E9-92E0-7D6713A87F5C/neifert.xyz/home/coltonncfic/vendor/php-http/discovery/src/ClassDiscovery.php",
+		"/Users/coltonneifert/Library/Caches/Transmit/B756BFE4-CF5B-46AD-B8F5-A75008ED92F1/neifert.xyz/home/coltonncfic/vendor/php-http/discovery/src/StreamFactoryDiscovery.php",
+		"/Users/coltonneifert/Library/Caches/Transmit/37978F82-B6C2-4B91-A946-21465D7413A4/neifert.xyz/home/coltonncfic/webapps/uploads/colton/colton_function_library.php",
+		"/Users/coltonneifert/Library/Caches/Transmit/6F96CB3F-97E6-4924-A7AD-054D2A7DF23E/neifert.xyz/home/coltonncfic/webapps/ncfic/public_html/system/user/templates/ncfic/layout.group/footer.html",
+		"/Users/coltonneifert/Downloads/read2018/dist/js/vue-2-5-13.js",
+		"/Users/coltonneifert/Downloads/read2018/dist/js/fontawesome.js",
+		"/Users/coltonneifert/Downloads/read2018/dist/js/sweetalert2.all.js",
+		"/Users/coltonneifert/Downloads/read2018/dist/js/jquery-3.2.1.min.js",
+		"/Users/coltonneifert/Library/Caches/Transmit/AEA8575B-ABD1-4FD0-8235-5A57384C75EA/neifert.xyz/home/coltonncfic/webapps/ncfic/public_html/system/user/templates/ncfic/store.group/products.html",
+		"/Users/coltonneifert/Library/Caches/Transmit/DAAB1622-EF20-4A07-B0CD-D409C07626D3/neifert.xyz/home/coltonncfic/webapps/uploads/colton/asana/daily_morning_hitlist_email.py",
+		"/Users/coltonneifert/Library/Caches/Transmit/74187A5E-08B7-4A5B-B50A-7E52EB873FD4/neifert.xyz/home/coltonncfic/webapps/read2018/.htaccess",
+		"/Users/coltonneifert/Library/Caches/Transmit/582FCADC-3521-4B71-9562-EA637ADF770A/neifert.xyz/home/coltonncfic/webapps/read2018/.htaccess",
+		"/Users/coltonneifert/Library/Caches/Transmit/1929DBE8-2C39-4B18-AF35-9951E4EC00D6/neifert.xyz/home/coltonncfic/webapps/tuliptimeoutreach/system/user/templates/default_site/events.group/register.html",
+		"/Users/coltonneifert/Library/Caches/Transmit/F354F39D-9EE6-4957-96A4-982EC71FB162/neifert.xyz/home/coltonncfic/webapps/uploads/colton/sermon_listener_report.py",
+		"/Users/coltonneifert/Library/Caches/Transmit/1DA527AA-F3E7-459F-A00B-0E51BFC12D82/neifert.xyz/home/coltonncfic/webapps/uploads/colton/asana/completed_today.py",
+		"/Users/coltonneifert/Library/Caches/Transmit/E2698DBC-F170-45AD-8201-A7858696FEF8/neifert.xyz/home/coltonncfic/webapps/ncfic/public_html/system/user/addons/colton/views/mcp/registrations/registration.php",
+		"/Users/coltonneifert/Library/Caches/Transmit/4DF65F04-75F1-4D02-B150-D0B56AC6C649/neifert.xyz/home/coltonncfic/webapps/ncfic/public_html/api/store/ncfic_store_functions/ncfic_store_functions/colton_event_registrations/event_registration.py",
+		"/Users/coltonneifert/Library/Caches/Transmit/2E15C066-5053-4DFA-A3F5-D95A8F707D60/neifert.xyz/home/coltonncfic/webapps/read2018/test.py",
+		"/Users/coltonneifert/Library/Caches/Transmit/A428C37E-1F06-4953-92C8-70FFA8ECE908/neifert.xyz/home/coltonncfic/webapps/ncfic/public_html/cgi/export.cgi",
+		"/Users/coltonneifert/Library/Caches/Transmit/913160C4-6D0E-4769-A1DE-06571AF296DA/neifert.xyz/home/coltonncfic/webapps/ncfic/public_html/cgi/export.cgi",
+		"/Users/coltonneifert/Library/Caches/Transmit/2701E677-64A6-4BA2-8C85-9BF17E1E36B0/neifert.xyz/home/coltonncfic/webapps/uploads/colton/run_blog_scheduler",
+		"/Users/coltonneifert/Library/Caches/Transmit/DEF262D7-BB1D-4E87-8B02-05A2EA4093AF/neifert.xyz/home/coltonncfic/webapps/uploads/colton/blog_scheduler.py",
+		"/Users/coltonneifert/Library/Caches/Transmit/97B3E066-CA10-4C8A-8FA8-836F096771E9/neifert.xyz/home/coltonncfic/webapps/ncfic/public_html/api/store/ncfic_store_functions/ncfic_store_functions/colton_orders/store_order_item.py",
+		"/Users/coltonneifert/Library/Caches/Transmit/88E5F27D-AA17-483C-9EEF-8C790830A54A/neifert.xyz/home/coltonncfic/webapps/uploads/audio/Burnings 2017/audio_adder.py",
+		"/Users/coltonneifert/Library/Caches/Transmit/4B39B763-B194-4D28-B73C-0BB63FF92823/neifert.xyz/home/coltonncfic/webapps/uploads/audio/Restoring Biblical Fatherhood/audio_adder.py",
+		"/Users/coltonneifert/Library/Caches/Transmit/7C944C0E-7E4D-4A01-98CC-5671B7EFA5F7/neifert.xyz/home/coltonncfic/webapps/uploads/audio/Burnings 2017/audio_adder.py",
+		"/Users/coltonneifert/Library/Caches/Transmit/0F6DB609-B5E2-4C9E-A1A6-2C4EF6910A1D/neifert.xyz/home/coltonncfic/webapps/uploads/audio/Worship of God New/audio_adder.py",
+		"/Users/coltonneifert/Library/Caches/Transmit/1A8499B9-058B-4257-BD3C-6BDCD6019270/neifert.xyz/home/coltonncfic/webapps/ncfic/public_html/system/ee/EllisLab/ExpressionEngine/View/dashboard.php",
+		"/Users/coltonneifert/Library/Caches/Transmit/B97120AF-10E3-46D7-AB14-63D4A66BE945/neifert.xyz/home/coltonncfic/webapps/ncfic/public_html/system/ee/EllisLab/ExpressionEngine/View/dashboard.php",
+		"/Users/coltonneifert/Library/Caches/Transmit/7C6642BE-145A-433D-924B-26B1A22BD17E/neifert.xyz/home/coltonncfic/webapps/neifert/foac/add_player.py",
+		"/Users/coltonneifert/Library/Caches/Transmit/63E4F3C7-CC72-42E6-86C2-F20653411EF3/neifert.xyz/home/coltonncfic/webapps/ncfic/public_html/system/ee/EllisLab/ExpressionEngine/View/dashboard.php",
+		"/Users/coltonneifert/Library/Caches/Transmit/6242D09B-7D10-4CDF-91DE-9AC36B7B1BCF/neifert.xyz/home/coltonncfic/webapps/uploads/colton/daily_report.php",
+		"/Users/coltonneifert/Library/Caches/Transmit/3FEEE7A5-4532-4320-94E7-0C595E97C709/neifert.xyz/home/coltonncfic/webapps/read2018/utilities/confirm_family_member.py",
+		"/Users/coltonneifert/Library/Caches/Transmit/A38C18C0-55CB-4698-931F-08571A61A781/neifert.xyz/home/coltonncfic/webapps/ncfic/public_html/system/ee/EllisLab/ExpressionEngine/View/dashboard.php",
+		"/Users/coltonneifert/Library/Caches/Transmit/CCCE06C0-66D6-4DB4-958C-881F17F82EF9/neifert.xyz/home/coltonncfic/webapps/read2018/utilities/login.py",
+		"/Users/coltonneifert/Library/Caches/Transmit/B69A7842-B449-49CA-9808-B7459D9A2F2B/neifert.xyz/home/coltonncfic/webapps/read2018/utilities/confirm_family_member.py",
+		"/Users/coltonneifert/Library/Caches/Transmit/B7F0B25C-4202-4C33-AB57-D1ACCBC3E890/neifert.xyz/home/coltonncfic/webapps/read2018/utilities/add_family_member.py",
+		"/Users/coltonneifert/Downloads/read2018/dist/production.html",
+		"/Users/coltonneifert/Downloads/read2018/src/css/styles.css",
+		"/Users/coltonneifert/Library/Caches/Transmit/AFD1300B-9690-470F-8C36-3A3C139CBCBE/neifert.xyz/home/coltonncfic/webapps/neifert/verse_fetcher/kjv.json",
+		"/Users/coltonneifert/Downloads/tto_python/volunteer.py",
+		"/Users/coltonneifert/Downloads/tto_python/training.py",
+		"/Users/coltonneifert/Downloads/tto_python/download_volunteer_csv.py",
+		"/Users/coltonneifert/Downloads/tto_python/download_training_csv.py",
+		"/Users/coltonneifert/Downloads/read2018/tailwind.js",
+		"/Users/coltonneifert/Downloads/create_schedule_table.py",
+		"/Users/coltonneifert/Library/Caches/Transmit/A6D7DF40-5F14-409A-AE73-CA3C76A9BE37/neifert.xyz/home/coltonncfic/webapps/neifert/verse_fetcher/kjv.json",
+		"/Users/coltonneifert/Downloads/journey homepage/node_modules/caniuse-db/region-usage-json/MD.json",
+		"/Users/coltonneifert/Library/Caches/Transmit/690FD5B5-57A1-4700-9F84-5F3541ED8FE6/neifert.xyz/home/coltonncfic/webapps/uploads/colton/create_schedule_table.py",
+		"/Users/coltonneifert/Downloads/fix_bible.py",
+		"/Users/coltonneifert/Downloads/get-pip.py",
+		"/Users/coltonneifert/Library/Caches/Transmit/413C96C1-9AA5-4DFC-92FF-2A2A9BB97D64/neifert.xyz/home/coltonncfic/webapps/uploads/colton/fix_bible_json.py",
+		"/Users/coltonneifert/Downloads/kjv_json",
+		"/Users/coltonneifert/Library/Caches/Transmit/3E355279-4A96-4C75-9FF7-6F4494163C98/neifert.xyz/home/coltonncfic/webapps/ncfic/public_html/api/store/ncfic_store_functions/ncfic_store_functions/colton_orders/store_order_item.py",
+		"/Users/coltonneifert/Library/Caches/Transmit/665E2B26-DFF6-4CB4-AB9C-4F407D8CB526/neifert.xyz/home/coltonncfic/webapps/ncfic/public_html/api/store/ncfic_store_functions/ncfic_store_functions/colton_orders/coupon.py",
+		"/Users/coltonneifert/Library/Caches/Transmit/E58C0FF3-4355-4D0E-8682-9A378C08841B/neifert.xyz/home/coltonncfic/webapps/tuliptimeoutreach/system/user/templates/default_site/events.group/post.html"
+	],
+	"find":
+	{
+		"height": 70.0
+	},
+	"find_in_files":
+	{
+		"height": 158.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"slbc",
+			"sermon tit",
+			"title",
+			"?",
+			"hymn",
+			"pt-4",
+			"corporaterea",
+			"corporate-reading",
+			"slbc",
+			"returnedScripture",
+			"keyu",
+			"hymnsList",
+			"passageIsLoading"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 14592,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								11060,
+								11060
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 4104.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/js/custom/scripts.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 18985,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4922,
+								4922
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2073.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/js/addon/slbc.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 72644,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								72644,
+								72644
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 4743.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "order_of_worship.sublime-project",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"~/Sites/order_of_worship/index.html"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

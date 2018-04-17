@@ -69,6 +69,27 @@
 			/*text-decoration: none;*/
 			color: inherit;
 		}
+
+		.loading {
+		  border: 16px solid #f3f3f3;
+		  border-radius: 50%;
+		  border-top: 16px solid #409892;
+		  width: 120px;
+		  height: 120px;
+		  -webkit-animation: spin 1s linear infinite; /* Safari */
+		  animation: spin 1s linear infinite;
+		}
+
+		@-webkit-keyframes spin {
+		  0% { -webkit-transform: rotate(0deg); }
+		  100% { -webkit-transform: rotate(360deg); }
+		}
+
+		@keyframes spin {
+		  0% { transform: rotate(0deg); }
+		  100% { transform: rotate(360deg); }
+		}
+
 	</style>
 
 </head>
@@ -77,49 +98,196 @@
 <body class="bg-grey-900 text-grey-900 font-sans leading-normal antialiased">
 	<div id="app" class="flex flex-grow w-full min-h-screen">
 
-		<!-- This is the main container -->
-		<div id="page-container" class="w-full flex flex-col flex-grow justify-center items-center">
-			<!-- This is a page -->
-			<div class="bg-white page my-16">
+		<!-- This is the main question container -->
+		<div v-if="currentQuestion < 9" id="app-container" class="w-full flex flex-col flex-grow justify-center items-center m-16">
+			<!-- Guide Box -->
+			<div class="w-full bg-white flex flex-col justify-start items-center py-8 px-16 max-w-lg">
+				<div class="text-xl pb-8 border-b border-grey-50">Order of Worship Generator</div>
 
-				<!-- For each part... -->
-				<template v-for="part, index in orderOfWorship.parts">
-
-					<!-- Header -->
-					<church-header v-if="part.type == 'church-header'" :date="orderOfWorship.date"></church-header>
-
-					<!-- Opening -->
-					<opening v-if="part.type == 'opening'" :opening="part"></opening>
-
-					<!-- Hymns -->
-					<hymns v-if="part.type == 'hymns'" 
-						:hymns="part.hymns" 
-						:hymns-list="hymns"
-						:assigned-to="part.assignedTo">
-					</hymns>
-
-					<!-- Teaching -->
-					<teaching v-if="part.type == 'teaching'" :teaching="part"></teaching>
-
-					<!-- Prayer -->
-					<prayer v-if="part.type == 'prayer'" :prayers="part.prayers"></prayer>
-
-					<!-- SLBC -->
-					<slbc v-if="part.type == 'slbc'" :slbc="part"></slbc>
-
-					<!-- Supper -->
-					<supper v-if="part.type == 'supper'" :supper="part"></supper>
-
-					<!-- Closing -->
-					<closing v-if="part.type == 'closing'" :closing="part"></closing>					
-
-					<!-- Divider -->
-					<divider 
-						:size="getDividerSize(index)" 
-						v-if="canShowDivider(index)">	
-					</divider>
-					
+				<template v-if="currentQuestion == 1">
+					<!-- Question #1 -->
+					<div class="text-2xl font-semibold py-8 text-center">Which of the men will be in attendance this Sunday?</div>
+					<!-- Answer #1 -->
+					<ul class="p-0 pb-8 list-reset border-b border-grey-50">
+						<li v-for="man, index in churchProfile.men">
+							<input type="checkbox" v-model="man.attending" :id="'man-' + index" class="cursor-pointer">
+							<label :for="'man-' + index" class="cursor-pointer">
+								<span class="text-lg pl-4">{{ man.name }}</span><template v-if="man.elder"> - <span class="sub-text">Elder</span></template>
+							</label>
+						</li>
+					</ul>
 				</template>
+
+				<template v-if="currentQuestion == 2">
+					<!-- Question #2 -->
+					<div class="text-2xl font-semibold py-8 text-center">What will your opening sentence be?</div>
+					<!-- Answer #2 -->
+					<input type="text" class="p-4 text-xl w-full border border-grey-100" placeholder="Enter Scripture Reference" v-model="scriptureSearch">
+					<scripture :scripture-is-loading="scriptureIsLoading" :returned-scripture="returnedScripture"></scripture>
+					<div class="w-full border-b border-grey-50"></div>
+				</template>
+
+				<template v-if="currentQuestion == 3">
+					<!-- Question #2 -->
+					<div class="text-2xl font-semibold py-8 text-center">Which hymns will we be singing?</div>
+					<!-- Answer #2 -->
+					<ul class="p-0 pb-8 list-reset border-b border-grey-50" v-if="selectedHymns.length">
+						<li v-for="hymn, index in selectedHymns">
+							<span class="text-lg">#{{ hymn }}</span> - <span class="text-lg capitalize text-grey-500">{{ hymns[hymn]['name'] }}</span>
+							<i class="far fa-minus-circle text-red cursor-pointer ml-4" v-on:click="selectedHymns.splice(index, 1)"></i>
+						</li>
+					</ul>
+					<input type="text" v-model="newHymn" class="p-4 text-xl w-full border border-grey-100 mb-8" placeholder="Enter a Hymn Number" v-on:keyup.enter="addHymn">
+					<div class="w-full border-b border-grey-50"></div>
+				</template>
+
+				<template v-if="currentQuestion == 4">
+					<!-- Question #2 -->
+					<div class="text-2xl font-semibold py-8 text-center">What will Don Stubblefield's Scripture passage be?</div>
+					<!-- Answer #2 -->
+					<input type="text" v-model="scriptureSearch" class="p-4 text-xl w-full border border-grey-100" placeholder="Enter Scripture Reference">
+					<scripture :scripture-is-loading="scriptureIsLoading" :returned-scripture="returnedScripture"></scripture>
+					<!-- Question #2 -->
+					<div class="text-2xl font-semibold py-8 text-center">What will his title be?</div>
+					<!-- Answer #2 -->
+					<input type="text" v-model="donTitle" class="p-4 text-xl w-full border border-grey-100 mb-8" placeholder="Enter a Sermon Title">
+					<div class="w-full border-b border-grey-50"></div>
+				</template>
+
+				<!-- <template v-if="currentQuestion == 5">
+					<div class="text-2xl font-semibold py-8 text-center">What things will we be praying for?</div>
+					<ul class="p-0 pb-8 list-reset border-b border-grey-50" v-if="prayerTopics.length">
+						<li v-for="prayer, index in prayerTopics">
+							<span class="text-lg">{{ prayer }}</span>
+							<i class="far fa-minus-circle text-red cursor-pointer ml-4" v-on:click="prayerTopics.splice(index, 1)"></i>
+						</li>
+					</ul>
+					<input type="text" v-model="newPrayer" class="p-4 text-xl w-full border border-grey-100 mb-8" placeholder="Enter a Prayer Topic" v-on:keyup.enter="addPrayer">
+					<div class="w-full border-b border-grey-50"></div>
+				</template> -->
+
+				<template v-if="currentQuestion == 5">
+					<!-- Question #2 -->
+					<div class="text-2xl font-semibold py-8 text-center">What will our corporate reading be?</div>
+					<!-- Answer #2 -->
+					<input type="text" v-model="scriptureSearch" class="p-4 text-xl w-full border border-grey-100" placeholder="Enter Scripture Reference">
+					<scripture :scripture-is-loading="scriptureIsLoading" :returned-scripture="returnedScripture"></scripture>
+					<div class="w-full border-b border-grey-50"></div>
+				</template>
+
+				<template v-if="currentQuestion == 6">
+					<!-- Question #2 -->
+					<div class="text-2xl font-semibold py-8 text-center">Which chapter and paragraph from the 1689?</div>
+					<!-- Answer #2 -->
+					<div class="flex w-full items-center justify-center">
+						<span class="mr-4">Chapter:</span>
+						<select v-model="slbcChapter" class="p-4 text-xl w-16 border border-grey-100" placeholder="Select a Chapter">
+							<option :value="key" v-for="chapter, key in slbc.chapters">{{ key }}</option>
+						</select>
+					</div>
+					<div class="flex w-full items-center justify-center pt-4 pb-8">
+						<span class="mr-4">Paragraph:</span>
+						<select v-model="slbcParagraph" class="p-4 text-xl w-16 border border-grey-100" placeholder="Select a Chapter">
+							<option :value="key" v-for="paragraph, key in slbc.chapters[slbcChapter].paragraphs">{{ key }}</option>
+						</select>
+					</div>
+					<div class="w-full border-b border-grey-50"></div>
+				</template>
+
+				<template v-if="currentQuestion == 7">
+					<!-- Question #2 -->
+					<div class="text-2xl font-semibold py-8 text-center">What will Steve Hopkins' Scripture passage be?</div>
+					<!-- Answer #2 -->
+					<input type="text" v-model="scriptureSearch" class="p-4 text-xl w-full border border-grey-100" placeholder="Enter Scripture Reference">
+					<scripture :scripture-is-loading="scriptureIsLoading" :returned-scripture="returnedScripture"></scripture>
+					<!-- Question #2 -->
+					<div class="text-2xl font-semibold py-8 text-center">What will his title be?</div>
+					<!-- Answer #2 -->
+					<input type="text" v-model="steveTitle" class="p-4 text-xl w-full border border-grey-100 mb-8" placeholder="Enter a Sermon Title">
+					<div class="w-full border-b border-grey-50"></div>
+				</template>
+
+				<template v-if="currentQuestion == 8">
+					<!-- Question #2 -->
+					<div class="text-2xl font-semibold py-8 text-center">What will the closing chorus be?</div>
+					<!-- Answer #2 -->
+					<textarea v-model="closingChorus" class="p-4 text-xl w-full border border-grey-100" rows="2" placeholder="Enter the Chorus"></textarea>
+					<div class="w-full border-b border-grey-50"></div>
+				</template>
+
+				<!-- Continue and Back Buttons -->
+				<div class="flex w-full justify-around">
+
+					<div 
+						class="text-xl mt-8 p-4 px-8 bg-grey-300 text-white cursor-pointer 
+						hover:bg-grey-400 hover:shadow-md trans"
+						v-on:click="currentQuestion -= 1"
+					>
+						<i class="fal fa-arrow-left mr-4"></i>Back
+					</div>
+
+					<div 
+						class="text-xl mt-8 p-4 px-8 bg-ncfic-blue-500 text-white cursor-pointer 
+						hover:bg-ncfic-blue-600 hover:shadow-md trans"
+						v-on:click="saveAnswerAndContiunue()"
+					>
+						Continue<i class="fal fa-arrow-right ml-4"></i>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<!-- This is the main page container -->
+		<div v-if="currentQuestion == 9" id="page-container" class="w-full flex flex-col flex-grow justify-center items-center">
+			<!-- This is a page -->
+			<div class="bg-white page my-16 pb-16 flex flex-col flex-wrap">
+
+				<!-- Header -->
+				<church-header :date="nextSunday"></church-header>
+
+				<!-- Opening -->
+				<opening :reference="openingSentence" :text="openingSentenceText"></opening>
+				<divider size="2/3"></divider>
+
+				<!-- Hymns -->
+				<hymns :hymns="[selectedHymns[0], selectedHymns[1]]" :hymns-list="hymns"></hymns>
+				<divider size="full"></divider>
+
+				<!-- Teaching -->
+				<teaching :scripture="donScripture" :title="donTitle" assigned-to="Don Stubblefield" kind="Teaching"></teaching>
+				<divider size="full"></divider>
+
+				<!-- Prayer -->
+				<prayer :prayers="churchProfile.prayers"></prayer>
+				<divider size="2/3"></divider>
+
+				<!-- Hymns -->
+				<hymns :hymns="[selectedHymns[2]]" :hymns-list="hymns"></hymns>
+				<divider size="full"></divider>
+
+				<!-- Corporate Reading -->
+				<corporate-reading :corporate-reading="corporateReading"></corporate-reading>
+				<divider size="2/3"></divider>
+
+				<!-- SLBC -->
+				<slbc :slbc-chapter="slbcChapter" :slbc-paragraph="slbcParagraph" :slbc-data="slbc"></slbc>
+				<divider size="full"></divider>
+
+				<!-- Hymns -->
+				<hymns :hymns="[selectedHymns[3]]" :hymns-list="hymns"></hymns>
+				<divider size="full"></divider>
+
+				<!-- Teaching -->
+				<teaching :scripture="steveScripture" :title="steveTitle" assigned-to="Steve Hopkins" kind="Sermon"></teaching>
+				<divider size="full"></divider>
+
+				<!-- Supper -->
+				<supper></supper>
+				<divider size="2/3"></divider>
+
+				<!-- Closing -->
+				<closing :closing-chorus="closingChorus"></closing>					
 
 			</div>
 		</div>
@@ -128,6 +296,7 @@
 </body>
 
 <script src="dist/js/hymns.js?v=2.3"></script>
+<script src="dist/js/slbc.js?v=2.3"></script>
 <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
@@ -170,29 +339,26 @@ var slideout = new Slideout({
 	}
 
 	function breakPages() {
+		// Defind some variables we'll need...
+		var childShouldBreakPage = false
+		// Loop through all the pages...
 		$(".page").each(function() {
-			// Defind some variables we'll need...
-			var childShouldBreakPage = false
 			// Find the bottom of the page
-			var pageHeight = $(this).outerHeight()
-			var pageTop = $(this).offset().top
-			var pageBottom = pageTop + pageHeight
+			var pageRightSide = $(".page").first().offset().left + $(".page").first().outerWidth()
 			// console.log("pageBottom:" + pageBottom)
 			// For each child...
 			$(this).children().each(function() {
 				// If we haven't already found a child that's going to break the page...
 				if (!childShouldBreakPage) {
 					// Find the bottom of the child
-					var childHeight = $(this).outerHeight(true)
-					var childTop = $(this).offset().top
-					var childBottom = childTop + childHeight
+					var childLeftSide = $(this).offset().left
 					// console.log("childBottom:" + childBottom)
 					// If the child goes under the page
-					if (childBottom > pageBottom) {
+					if (childLeftSide >= pageRightSide) {
 						// Mark this as true
 						childShouldBreakPage = true;
 						// Since this is the first instance, make another page.
-						$("#page-container").append('<div class="bg-white page mb-16 pt-16"></div>')
+						$("#page-container").append('<div class="bg-white page mb-16 py-16 flex flex-col flex-wrap justify-center items-center"></div>')
 					}
 				}
 				// If this child should be on the next page...
@@ -203,6 +369,13 @@ var slideout = new Slideout({
 
 			})
 		});
+		// If we had to break the page...
+		if (childShouldBreakPage) {
+			// Loop through again
+			setTimeout(function(){ breakPages(); }, 300);
+		}
+		// Tag the references
+		refTagger.tag()
 	}
 </script>
 
