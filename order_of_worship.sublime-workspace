@@ -4,6 +4,42 @@
 		"selected_items":
 		[
 			[
+				"music",
+				"musicIncrement"
+			],
+			[
+				"closing",
+				"closingChorus"
+			],
+			[
+				"church",
+				"churchProfile"
+			],
+			[
+				"ass",
+				"assignedTo"
+			],
+			[
+				"as",
+				"assignmentIncrement"
+			],
+			[
+				"atte",
+				"attendingMen"
+			],
+			[
+				"at",
+				"attendingMen"
+			],
+			[
+				"return",
+				"returnedScripture"
+			],
+			[
+				"pa",
+				"paragraphNumber"
+			],
+			[
 				"bib",
 				"bible-output"
 			],
@@ -478,71 +514,48 @@
 			[
 				"calenda",
 				"calendar-modal"
-			],
-			[
-				"index",
-				"indexOf"
-			],
-			[
-				"researc",
-				"research-content"
-			],
-			[
-				"Cap",
-				"Capita-Light"
-			],
-			[
-				"inline",
-				"inline-block"
-			],
-			[
-				"pre",
-				"pre-wrap"
-			],
-			[
-				"chapter",
-				"chapterNumber"
-			],
-			[
-				"book",
-				"bookAbbreviation"
-			],
-			[
-				"backg",
-				"background-size"
-			],
-			[
-				"bac",
-				"background"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
+			"contents": "<html lang=\"en\">\n\n<head>\n\t<meta charset=\"UTF-8\">\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui\">\n\t<meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">\n\t<meta name=\"mobile-web-app-capable\" content=\"yes\">\n\t<meta name=\"apple-mobile-web-app-capable\" content=\"yes\">\n\t<meta name=\"apple-mobile-web-app-status-bar-style\" content=\"black\">\n\t<title>BBC Order of Worship</title>\n\t<link rel=\"icon\" href=\"images/favicon.png\">\n\t<link rel=\"icon\" href=\"images/favicon.png\" type=\"image/x-icon\"/>\n\t<link rel=\"shortcut icon\" href=\"images/favicon.png\" type=\"image/x-icon\"/>\n\t<link rel=\"apple-touch-icon\" href=\"images/favicon.png\">    \n\n\t<!-- Bring in my google fonts -->\n\t<!-- <link href=\"https://fonts.googleapis.com/css?family=Nanum+Gothic|Noto+Sans|Noto+Serif|Quicksand|Roboto|Slabo+27px|Vollkorn|Montserrat\" rel=\"stylesheet\"> -->\n\t<link href=\"https://fonts.googleapis.com/css?family=Noto+Serif|Montserrat:400,400i,500,500i,600,600i,700,700i,800,800i\" rel=\"stylesheet\">\n\n\n\t<!-- Jquery -->\n\t<script src=\"https://code.jquery.com/jquery-3.2.1.min.js\" integrity=\"sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=\" crossorigin=\"anonymous\"></script>\n\t<!-- <script src=\"dist/js/jquery.mobile.customjs\"></script> -->\n\n\t<!-- Load jQuery.fullCalendar plugin-->\n\t<link rel='stylesheet' href='dist/js/fullcalendar-3.8.0/fullcalendar.css' />\n\t<script src='dist/js/fullcalendar-3.8.0/lib/jquery.min.js'></script>\n\t<script src='dist/js/fullcalendar-3.8.0/lib/moment.min.js'></script>\n\t<script src='dist/js/fullcalendar-3.8.0/fullcalendar.js'></script>\n\n\t<!-- Sweet Alert -->\n\t<script src=\"https://unpkg.com/sweetalert2@7.2.0/dist/sweetalert2.all.js\"></script>\n\n\t<!-- Font Awesome (for icons) -->\n\t<!-- <script src=\"https://use.fontawesome.com/88d4daa47d.js\"></script> -->\n\t<!-- <link href=\"https://use.fontawesome.com/releases/v5.0.6/css/all.css\" rel=\"stylesheet\"> -->\n\t<link href=\"dist/css/fontawesome-all.css\" rel=\"stylesheet\" type=\"text/css\">\n\n\t<!-- Vue -->\n\t<!-- <script src=\"https://cdn.jsdelivr.net/npm/vue\"></script> -->\n\t<script src=\"dist/js/vue.js\"></script>\n\n\t<!-- Insert Tailwind Style Sheet -->\n\t<link href=\"dist/css/styles.css?v=2.3\" rel=\"stylesheet\" type=\"text/css\">\n\n\t<!-- Insert Journey Style Sheet -->\n\t<link href=\"dist/css/journey.css?v=2.3\" rel=\"stylesheet\" type=\"text/css\">\n\n\t<style>\n\t\t.page {\n\t\t\twidth: 8.5in;\n\t\t\theight: 11in;\n\t\t}\n\n\t\t@media print {\n\t\t\t.page {\n\t\t\t\twidth: 100%;\n\t\t\t\ttop: 0;\n\t\t\t\tleft: 0;\n\t\t\t\tmargin: 0;\n\t\t\t}\n\n\t\t\ta {\n\t\t\t\ttext-decoration: none;\n\t\t\t}\n\t\t}\n\n\t\ta {\n\t\t\t/*text-decoration: none;*/\n\t\t\tcolor: inherit;\n\t\t}\n\n\t\t.loading {\n\t\t  border: 16px solid #f3f3f3;\n\t\t  border-radius: 50%;\n\t\t  border-top: 16px solid #409892;\n\t\t  width: 120px;\n\t\t  height: 120px;\n\t\t  -webkit-animation: spin 1s linear infinite; /* Safari */\n\t\t  animation: spin 1s linear infinite;\n\t\t}\n\n\t\t@-webkit-keyframes spin {\n\t\t  0% { -webkit-transform: rotate(0deg); }\n\t\t  100% { -webkit-transform: rotate(360deg); }\n\t\t}\n\n\t\t@keyframes spin {\n\t\t  0% { transform: rotate(0deg); }\n\t\t  100% { transform: rotate(360deg); }\n\t\t}\n\n\t</style>\n\n</head>\n\n<!-- The important relative position on the body fixed the green bug from sweetalert... -->\n<body class=\"bg-grey-900 text-grey-900 font-sans leading-normal antialiased\">\n\t<div id=\"app\" class=\"flex flex-grow w-full min-h-screen\">\n\n\t\t<!-- This is the main question container -->\n\t\t<div v-if=\"currentQuestion < 9\" id=\"app-container\" class=\"w-full flex flex-col flex-grow justify-center items-center m-16\">\n\t\t\t<!-- Guide Box -->\n\t\t\t<div class=\"w-full bg-white flex flex-col justify-start items-center py-8 px-16 max-w-lg\">\n\t\t\t\t<div class=\"text-xl pb-8 border-b border-grey-50\">Order of Worship Generator</div>\n\n\t\t\t\t<template v-if=\"currentQuestion == 1\">\n\t\t\t\t\t<!-- Question #1 -->\n\t\t\t\t\t<div class=\"text-2xl font-semibold py-8 text-center\">Which of the men will be in attendance this Sunday?</div>\n\t\t\t\t\t<!-- Answer #1 -->\n\t\t\t\t\t<ul class=\"p-0 pb-8 list-reset border-b border-grey-50\">\n\t\t\t\t\t\t<li v-for=\"man, index in churchProfile.men\">\n\t\t\t\t\t\t\t<input type=\"checkbox\" v-model=\"man.attending\" :id=\"'man-' + index\" class=\"cursor-pointer\">\n\t\t\t\t\t\t\t<label :for=\"'man-' + index\" class=\"cursor-pointer\">\n\t\t\t\t\t\t\t\t<span class=\"text-lg pl-4\">{{ man.name }}</span><template v-if=\"man.elder\"> - <span class=\"sub-text\">Elder</span></template>\n\t\t\t\t\t\t\t</label>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t</ul>\n\t\t\t\t</template>\n\n\t\t\t\t<template v-if=\"currentQuestion == 2\">\n\t\t\t\t\t<!-- Question #2 -->\n\t\t\t\t\t<div class=\"text-2xl font-semibold py-8 text-center\">What will your opening sentence be?</div>\n\t\t\t\t\t<!-- Answer #2 -->\n\t\t\t\t\t<input type=\"text\" class=\"p-4 text-xl w-full border border-grey-100\" placeholder=\"Enter Scripture Reference\" v-model=\"scriptureSearch\">\n\t\t\t\t\t<scripture :scripture-is-loading=\"scriptureIsLoading\" :returned-scripture=\"returnedScripture\"></scripture>\n\t\t\t\t\t<div class=\"w-full border-b border-grey-50\"></div>\n\t\t\t\t</template>\n\n\t\t\t\t<template v-if=\"currentQuestion == 3\">\n\t\t\t\t\t<!-- Question #2 -->\n\t\t\t\t\t<div class=\"text-2xl font-semibold py-8 text-center\">Which hymns will we be singing?</div>\n\t\t\t\t\t<!-- Answer #2 -->\n\t\t\t\t\t<ul class=\"p-0 pb-8 list-reset border-b border-grey-50\" v-if=\"selectedHymns.length\">\n\t\t\t\t\t\t<li v-for=\"hymn, index in selectedHymns\">\n\t\t\t\t\t\t\t<span class=\"text-lg\">#{{ hymn }}</span> - <span class=\"text-lg capitalize text-grey-500\">{{ hymns[hymn]['name'] }}</span>\n\t\t\t\t\t\t\t<i class=\"far fa-minus-circle text-red cursor-pointer ml-4\" v-on:click=\"selectedHymns.splice(index, 1)\"></i>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t</ul>\n\t\t\t\t\t<input type=\"text\" v-model=\"newHymn\" class=\"p-4 text-xl w-full border border-grey-100 mb-8\" placeholder=\"Enter a Hymn Number\" v-on:keyup.enter=\"addHymn\">\n\t\t\t\t\t<div class=\"w-full border-b border-grey-50\"></div>\n\t\t\t\t</template>\n\n\t\t\t\t<template v-if=\"currentQuestion == 4\">\n\t\t\t\t\t<!-- Question #2 -->\n\t\t\t\t\t<div class=\"text-2xl font-semibold py-8 text-center\">What will Don Stubblefield's Scripture passage be?</div>\n\t\t\t\t\t<!-- Answer #2 -->\n\t\t\t\t\t<input type=\"text\" v-model=\"scriptureSearch\" class=\"p-4 text-xl w-full border border-grey-100\" placeholder=\"Enter Scripture Reference\">\n\t\t\t\t\t<scripture :scripture-is-loading=\"scriptureIsLoading\" :returned-scripture=\"returnedScripture\"></scripture>\n\t\t\t\t\t<!-- Question #2 -->\n\t\t\t\t\t<div class=\"text-2xl font-semibold py-8 text-center\">What will his title be?</div>\n\t\t\t\t\t<!-- Answer #2 -->\n\t\t\t\t\t<input type=\"text\" v-model=\"donTitle\" class=\"p-4 text-xl w-full border border-grey-100 mb-8\" placeholder=\"Enter a Sermon Title\">\n\t\t\t\t\t<div class=\"w-full border-b border-grey-50\"></div>\n\t\t\t\t</template>\n\n\t\t\t\t<!-- <template v-if=\"currentQuestion == 5\">\n\t\t\t\t\t<div class=\"text-2xl font-semibold py-8 text-center\">What things will we be praying for?</div>\n\t\t\t\t\t<ul class=\"p-0 pb-8 list-reset border-b border-grey-50\" v-if=\"prayerTopics.length\">\n\t\t\t\t\t\t<li v-for=\"prayer, index in prayerTopics\">\n\t\t\t\t\t\t\t<span class=\"text-lg\">{{ prayer }}</span>\n\t\t\t\t\t\t\t<i class=\"far fa-minus-circle text-red cursor-pointer ml-4\" v-on:click=\"prayerTopics.splice(index, 1)\"></i>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t</ul>\n\t\t\t\t\t<input type=\"text\" v-model=\"newPrayer\" class=\"p-4 text-xl w-full border border-grey-100 mb-8\" placeholder=\"Enter a Prayer Topic\" v-on:keyup.enter=\"addPrayer\">\n\t\t\t\t\t<div class=\"w-full border-b border-grey-50\"></div>\n\t\t\t\t</template> -->\n\n\t\t\t\t<template v-if=\"currentQuestion == 5\">\n\t\t\t\t\t<!-- Question #2 -->\n\t\t\t\t\t<div class=\"text-2xl font-semibold py-8 text-center\">What will our corporate reading be?</div>\n\t\t\t\t\t<!-- Answer #2 -->\n\t\t\t\t\t<input type=\"text\" v-model=\"scriptureSearch\" class=\"p-4 text-xl w-full border border-grey-100\" placeholder=\"Enter Scripture Reference\">\n\t\t\t\t\t<scripture :scripture-is-loading=\"scriptureIsLoading\" :returned-scripture=\"returnedScripture\"></scripture>\n\t\t\t\t\t<div class=\"w-full border-b border-grey-50\"></div>\n\t\t\t\t</template>\n\n\t\t\t\t<template v-if=\"currentQuestion == 6\">\n\t\t\t\t\t<!-- Question #2 -->\n\t\t\t\t\t<div class=\"text-2xl font-semibold py-8 text-center\">Which chapter and paragraph from the 1689?</div>\n\t\t\t\t\t<!-- Answer #2 -->\n\t\t\t\t\t<div class=\"flex w-full items-center justify-center\">\n\t\t\t\t\t\t<span class=\"mr-4\">Chapter:</span>\n\t\t\t\t\t\t<select v-model=\"slbcChapter\" class=\"p-4 text-xl w-16 border border-grey-100\" placeholder=\"Select a Chapter\">\n\t\t\t\t\t\t\t<option :value=\"key\" v-for=\"chapter, key in slbc.chapters\">{{ key }}</option>\n\t\t\t\t\t\t</select>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"flex w-full items-center justify-center pt-4 pb-8\">\n\t\t\t\t\t\t<span class=\"mr-4\">Paragraph:</span>\n\t\t\t\t\t\t<select v-model=\"slbcParagraph\" class=\"p-4 text-xl w-16 border border-grey-100\" placeholder=\"Select a Chapter\">\n\t\t\t\t\t\t\t<option :value=\"key\" v-for=\"paragraph, key in slbc.chapters[slbcChapter].paragraphs\">{{ key }}</option>\n\t\t\t\t\t\t</select>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"w-full border-b border-grey-50\"></div>\n\t\t\t\t</template>\n\n\t\t\t\t<template v-if=\"currentQuestion == 7\">\n\t\t\t\t\t<!-- Question #2 -->\n\t\t\t\t\t<div class=\"text-2xl font-semibold py-8 text-center\">What will Steve Hopkins' Scripture passage be?</div>\n\t\t\t\t\t<!-- Answer #2 -->\n\t\t\t\t\t<input type=\"text\" v-model=\"scriptureSearch\" class=\"p-4 text-xl w-full border border-grey-100\" placeholder=\"Enter Scripture Reference\">\n\t\t\t\t\t<scripture :scripture-is-loading=\"scriptureIsLoading\" :returned-scripture=\"returnedScripture\"></scripture>\n\t\t\t\t\t<!-- Question #2 -->\n\t\t\t\t\t<div class=\"text-2xl font-semibold py-8 text-center\">What will his title be?</div>\n\t\t\t\t\t<!-- Answer #2 -->\n\t\t\t\t\t<input type=\"text\" v-model=\"steveTitle\" class=\"p-4 text-xl w-full border border-grey-100 mb-8\" placeholder=\"Enter a Sermon Title\">\n\t\t\t\t\t<div class=\"w-full border-b border-grey-50\"></div>\n\t\t\t\t</template>\n\n\t\t\t\t<template v-if=\"currentQuestion == 8\">\n\t\t\t\t\t<!-- Question #2 -->\n\t\t\t\t\t<div class=\"text-2xl font-semibold py-8 text-center\">What will the closing chorus be?</div>\n\t\t\t\t\t<!-- Answer #2 -->\n\t\t\t\t\t<textarea v-model=\"closingChorus\" class=\"p-4 text-xl w-full border border-grey-100\" rows=\"2\" placeholder=\"Enter the Chorus\"></textarea>\n\t\t\t\t\t<div class=\"w-full border-b border-grey-50\"></div>\n\t\t\t\t</template>\n\n\t\t\t\t<!-- Continue and Back Buttons -->\n\t\t\t\t<div class=\"flex w-full justify-around\">\n\n\t\t\t\t\t<div \n\t\t\t\t\t\tclass=\"text-xl mt-8 p-4 px-8 bg-grey-300 text-white cursor-pointer \n\t\t\t\t\t\thover:bg-grey-400 hover:shadow-md trans\"\n\t\t\t\t\t\tv-on:click=\"currentQuestion -= 1\"\n\t\t\t\t\t>\n\t\t\t\t\t\t<i class=\"fal fa-arrow-left mr-4\"></i>Back\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div \n\t\t\t\t\t\tclass=\"text-xl mt-8 p-4 px-8 bg-ncfic-blue-500 text-white cursor-pointer \n\t\t\t\t\t\thover:bg-ncfic-blue-600 hover:shadow-md trans\"\n\t\t\t\t\t\tv-on:click=\"saveAnswerAndContiunue()\"\n\t\t\t\t\t>\n\t\t\t\t\t\tContinue<i class=\"fal fa-arrow-right ml-4\"></i>\n\t\t\t\t\t</div>\n\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<!-- This is the main page container -->\n\t\t<div v-if=\"currentQuestion == 9\" id=\"page-container\" class=\"w-full flex flex-col flex-grow justify-center items-center\">\n\t\t\t<!-- This is a page -->\n\t\t\t<div class=\"bg-white page my-16 pb-16 flex flex-col flex-wrap\">\n\n\t\t\t\t<!-- Header -->\n\t\t\t\t<church-header :date=\"nextSunday\"></church-header>\n\n\t\t\t\t<!-- Opening -->\n\t\t\t\t<opening :reference=\"openingSentence\" :text=\"openingSentenceText\"></opening>\n\t\t\t\t<divider size=\"2/3\"></divider>\n\n\t\t\t\t<!-- Hymns -->\n\t\t\t\t<hymns :hymns=\"[selectedHymns[0], selectedHymns[1]]\" :hymns-list=\"hymns\"></hymns>\n\t\t\t\t<divider size=\"full\"></divider>\n\n\t\t\t\t<!-- Teaching -->\n\t\t\t\t<template v-if=\"churchProfile.men[1].attending\">\n\t\t\t\t\t<teaching :scripture=\"donScripture\" :title=\"donTitle\" assigned-to=\"Don Stubblefield\" kind=\"Teaching\"></teaching>\n\t\t\t\t\t<divider size=\"full\"></divider>\n\t\t\t\t</template>\n\n\t\t\t\t<!-- Prayer -->\n\t\t\t\t<prayer :prayers=\"churchProfile.prayers\"></prayer>\n\t\t\t\t<divider size=\"2/3\"></divider>\n\n\t\t\t\t<!-- Hymns -->\n\t\t\t\t<hymns :hymns=\"[selectedHymns[2]]\" :hymns-list=\"hymns\"></hymns>\n\t\t\t\t<divider size=\"full\"></divider>\n\n\t\t\t\t<!-- Corporate Reading -->\n\t\t\t\t<corporate-reading :corporate-reading=\"corporateReading\"></corporate-reading>\n\t\t\t\t<divider size=\"2/3\"></divider>\n\n\t\t\t\t<!-- SLBC -->\n\t\t\t\t<slbc :slbc-chapter=\"slbcChapter\" :slbc-paragraph=\"slbcParagraph\" :slbc-data=\"slbc\"></slbc>\n\t\t\t\t<divider size=\"full\"></divider>\n\n\t\t\t\t<!-- Hymns -->\n\t\t\t\t<hymns :hymns=\"[selectedHymns[3]]\" :hymns-list=\"hymns\"></hymns>\n\t\t\t\t<divider size=\"full\"></divider>\n\n\t\t\t\t<!-- Teaching -->\n\t\t\t\t<teaching :scripture=\"steveScripture\" :title=\"steveTitle\" assigned-to=\"Steve Hopkins\" kind=\"Sermon\"></teaching>\n\t\t\t\t<divider size=\"full\"></divider>\n\n\t\t\t\t<!-- Supper -->\n\t\t\t\t<supper></supper>\n\t\t\t\t<divider size=\"2/3\"></divider>\n\n\t\t\t\t<!-- Closing -->\n\t\t\t\t<closing :closing-chorus=\"closingChorus\"></closing>\t\t\t\t\t\n\n\t\t\t</div>\n\t\t</div>\n\n\t</div>\n</body>\n\n<script src=\"dist/js/hymns.js?v=2.3\"></script>\n<script src=\"dist/js/slbc.js?v=2.3\"></script>\n<script src=\"https://unpkg.com/vue-router/dist/vue-router.js\"></script>\n<script src=\"https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js\"></script>\n<script src=\"https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js\"></script>\n<script src=\"https://cdnjs.cloudflare.com/ajax/libs/slideout/1.0.1/slideout.js\"></script>\n\n<script>\nvar slideout = new Slideout({\n\t'panel': document.getElementById('panel'),\n\t'menu': document.getElementById('menu'),\n\t'padding': 360,\n\t'tolerance': 70,\n\t'side': 'right'\n});\n</script>\n\n<script>\n\tvar refTagger = {\n\t\tsettings: {\n\t\t\tbibleVersion: \"KJV\"\t\t\t\n\t\t}\n\t};\n\t(function(d, t) {\n\t\tvar g = d.createElement(t), s = d.getElementsByTagName(t)[0];\n\t\tg.src = \"//api.reftagger.com/v2/RefTagger.js\";\n\t\ts.parentNode.insertBefore(g, s);\n\t}(document, \"script\"));\n</script>\n\n<!-- Make the Hymns Clickable -->\n<script>\n\tfunction linkHymns() {\n\t\t$(\".hymn\").each(function() {\n\t\t\t// Find the number and get rid of the # sign\n\t\t\tvar hymnNumber = $(this).text().replace(\"#\", \"\").trim()\n\t\t\t// Wrap the number and title in an a tag\n\t\t\t$(this).wrapInner('<a href=\"https://www.opc.org/' + hymns[hymnNumber]['link'] + '\" target=\"_blank\" class=\"no-underline\"></a>');\n\t\t\tvar title = $(this).parent().find(\".main-text\")\n\t\t\ttitle.wrapInner('<a href=\"https://www.opc.org/' + hymns[hymnNumber]['link'] + '\" target=\"_blank\"></a>');\n\t\t})\n\t}\n\n\tfunction breakPages() {\n\t\t// Defind some variables we'll need...\n\t\tvar childShouldBreakPage = false\n\t\t// Loop through all the pages...\n\t\t$(\".page\").each(function() {\n\t\t\t// Find the bottom of the page\n\t\t\tvar pageRightSide = $(\".page\").first().offset().left + $(\".page\").first().outerWidth()\n\t\t\t// console.log(\"pageBottom:\" + pageBottom)\n\t\t\t// For each child...\n\t\t\t$(this).children().each(function() {\n\t\t\t\t// If we haven't already found a child that's going to break the page...\n\t\t\t\tif (!childShouldBreakPage) {\n\t\t\t\t\t// Find the bottom of the child\n\t\t\t\t\tvar childLeftSide = $(this).offset().left\n\t\t\t\t\t// console.log(\"childBottom:\" + childBottom)\n\t\t\t\t\t// If the child goes under the page\n\t\t\t\t\tif (childLeftSide >= pageRightSide) {\n\t\t\t\t\t\t// Mark this as true\n\t\t\t\t\t\tchildShouldBreakPage = true;\n\t\t\t\t\t\t// Since this is the first instance, make another page.\n\t\t\t\t\t\t$(\"#page-container\").append('<div class=\"bg-white page mb-16 py-16 flex flex-col flex-wrap justify-center items-center\"></div>')\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\t// If this child should be on the next page...\n\t\t\t\tif (childShouldBreakPage) {\n\t\t\t\t\t// Move this child into the new page.\n\t\t\t\t\t$(\".page\").last().append($(this))\n\t\t\t\t}\n\n\t\t\t})\n\t\t});\n\t\t// If we had to break the page...\n\t\tif (childShouldBreakPage) {\n\t\t\t// Loop through again\n\t\t\tsetTimeout(function(){ breakPages(); }, 300);\n\t\t}\n\t\t// Tag the references\n\t\trefTagger.tag()\n\t}\n</script>\n\n<script src=\"dist/js/scripts-min.js?v=2.3\"></script>\n\n</html>",
 			"file": "index.html",
+			"file_size": 15270,
+			"file_write_time": 131684762788751370,
 			"settings":
 			{
-				"buffer_size": 14592,
+				"buffer_size": 15341,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
+			"contents": "// Header Component\nvar ChurchHeader = {\n\tprops: [\"date\"],\n\ttemplate: `\n\t\t<!-- Church Header -->\n\t\t<div class=\"w-full p-16 flex flex-col justify-center items-center border-b-4 border-grey-50\">\n\t\t\t<div class=\"header-main-text\">Burnet Bible Church</div>\n\t\t\t<div class=\"header-sub-text\">The Lord's Day - {{ date }}</div>\n\t\t</div>\n\t`\n}\n\n// Opening Component\nvar Opening = {\n\tprops: [\"reference\", \"text\"],\n\ttemplate: `\n\t\t<!-- Opening Stuff -->\n\t\t<div class=\"w-full p-8 flex flex-col justify-center items-center\">\n\t\t\t<!-- Item -->\n\t\t\t<div class=\"flex-col justify-center items-center\">\n\t\t\t\t<div class=\"main-text text-center\">Announcements</div>\n\t\t\t\t<div class=\"sub-text text-center\">Steve Hopkins | Pastor/Elder</div>\n\t\t\t</div>\n\t\t\t<!-- Item -->\n\t\t\t<div class=\"flex-col justify-center items-center pt-4\">\n\t\t\t\t<div class=\"main-text text-center\">Silent Preparation for Commencement of Service</div>\n\t\t\t</div>\n\t\t\t<!-- Item -->\n\t\t\t<div class=\"flex-col justify-center items-center pt-4\">\n\t\t\t\t<div class=\"main-text text-center\">Opening Prayer</div>\n\t\t\t\t<div class=\"sub-text text-center\">{{ assign() }}</div>\n\t\t\t</div>\n\t\t\t<!-- Item -->\n\t\t\t<div class=\"flex-col justify-center items-center pt-4\">\n\t\t\t\t<div class=\"main-text text-center\">Opening Sentence</div>\n\t\t\t\t<div class=\"sub-text text-center\">{{ reference }} (Steve Hopkins)</div>\n\t\t\t\t<div class=\"italic text-xs text-center px-12 pt-8\">\n\t\t\t\t\t“{{ text }}”\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t`\n};\n\n// Hymns Component\nvar Hymns = {\n\tprops: [\"hymns\", \"hymnsList\"],\n\ttemplate: `\n\t\t<!-- Singing  -->\n\t\t<div class=\"w-full p-8 flex flex-col justify-center items-center\">\n\t\t\t<!-- Item -->\n\t\t\t<div class=\"flex-col justify-center items-center pb-4\" v-if=\"hymns.length > 1\">\n\t\t\t\t<div class=\"main-text text-center\">Congregational Singing</div>\n\t\t\t\t<div class=\"sub-text text-center\">{{ assign(true) }}</div>\n\t\t\t</div>\n\t\t\t<!-- Songs -->\n\t\t\t<div class=\"\">\n\t\t\t\t<!-- Song -->\n\t\t\t\t<div class=\"flex items-center w-full justify-left\" :class=\"{'pt-4' : index}\" v-for=\"hymn, index in hymns\">\n\t\t\t\t\t<div class=\"text-5xl pr-4 text-grey-300 hymn\">\n\t\t\t\t\t\t<a :href=\"'https://www.opc.org/' + hymnsList[hymn]['link']\" target=\"_blank\" class=\"no-underline\" >#{{ hymn }}</a>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"flex flex-col\">\n\t\t\t\t\t\t<div class=\"main-text\">\n\t\t\t\t\t\t\t<a :href=\"'https://www.opc.org/' + hymnsList[hymn]['link']\" target=\"_blank\">\n\t\t\t\t\t\t\t\t{{ hymnsList[hymn]['name'] }}\n\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"sub-text\" v-if=\"hymns.length > 1\">{{ assign() }} - Scripture</div>\n\t\t\t\t\t\t<div class=\"sub-text\" v-else>{{ assign(true) }}</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t`\n};\n\n// Teaching Component\nvar Teaching = {\n\tprops: [\"scripture\", \"title\", \"assignedTo\", \"kind\"],\n\ttemplate: `\n\t\t<!-- Teaching  -->\n\t\t<div class=\"w-full p-8 flex flex-col justify-center items-center\">\n\t\t\t<!-- Item -->\n\t\t\t<div class=\"flex-col justify-center items-center\">\n\t\t\t\t<div class=\"main-text text-center\">{{ kind }} - {{ scripture }}</div>\n\t\t\t\t<div class=\"sub-text text-center\">{{ assignedTo }}</div>\n\t\t\t\t<div class=\"italic text-sm text-center px-12 pt-4\">\n\t\t\t\t\t“{{ title }}”\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t`\n};\n\n// Prayer Component\nvar Prayer = {\n\tprops: [\"prayers\"],\n\ttemplate: `\n\t\t<!-- Prayer Block -->\n\t\t<div class=\"w-full p-8 flex flex-col justify-center items-center\">\n\t\t\t<!-- Item -->\n\t\t\t<div class=\"flex-col justify-center items-center\">\n\t\t\t\t<div class=\"main-text text-center\">Corporate Prayer</div>\n\t\t\t</div>\n\t\t\t<!-- Item -->\n\t\t\t<div class=\"flex-col justify-center items-center pt-4\">\n\t\t\t\t<ul class=\"p-0\">\n\t\t\t\t\t<li v-for=\"prayer in prayers\">\n\t\t\t\t\t\t<span class=\"text-sm\">{{ prayer }}</span><span> - </span><span class=\"sub-text\">{{ assign() }}</span>\n\t\t\t\t\t</li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t\t<div class=\"italic text-sm text-center px-12 pt-4 w-3/4 text-grey-500\">\n\t\t\t\tCovenanted male heads of households are encouraged to stand and pray for our church, our members, and our families.\n\t\t\t</div>\n\t\t</div>\n\t`\n};\n\n// Corporate Reading\nvar CorporateReading = {\n\tprops: [\"corporateReading\"],\n\ttemplate: `\n\t\t<!-- Corporate Reading -->\n\t\t<div class=\"w-full p-8 flex flex-col justify-center items-center\">\n\t\t\t<!-- Item -->\n\t\t\t<div class=\"flex-col justify-center items-center\">\n\t\t\t\t<div class=\"main-text text-center\">Corporate Reading</div>\n\t\t\t\t<div class=\"sub-text text-center\">{{ corporateReading }} - {{ assign() }}</div>\n\t\t\t</div>\n\t\t</div>\n\t`\n};\n\n// SLBC Component\nvar SLBC = {\n\tprops: [\"slbcChapter\", \"slbcParagraph\", \"slbcData\"],\n\ttemplate: `\n\t\t<!-- SLBC -->\n\t\t<div class=\"w-full p-8 flex flex-col justify-center items-center\">\n\t\t\t<!-- Item -->\n\t\t\t<div class=\"flex-col justify-center items-center\">\n\t\t\t\t<div class=\"main-text text-center\">Second London Baptist Confession of 1689</div>\n\t\t\t\t<div class=\"sub-text text-center\">Chapter {{ slbcChapter }}: {{ slbcData.chapters[slbcChapter].title }} (Paragraph {{ slbcParagraph }}) - {{ assign() }}</div>\n\t\t\t\t<div class=\"italic text-xs text-center px-12 pt-4\">\n\t\t\t\t\t{{ slbcData.chapters[slbcChapter].paragraphs[slbcParagraph].text }}\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<!-- Item -->\n\t\t\t<div class=\"flex-col justify-center items-center pt-4\">\n\t\t\t\t<ul class=\"p-0\">\n\t\t\t\t\t<li v-for=\"reference in slbcData.chapters[slbcChapter].paragraphs[slbcParagraph].citations\">\n\t\t\t\t\t\t<span class=\"text-sm\">{{ reference }}</span><span> - </span><span class=\"sub-text\">{{ assign() }}</span>\n\t\t\t\t\t</li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t\t<!-- Item -->\n\t\t\t<div class=\"flex-col justify-center items-center pt-4\">\n\t\t\t\t<div class=\"italic text-xs text-center px-12 pt-4\">\n\t\t\t\t\tMr. Stubblefield will permit two or three of the men, (covenanted heads of households) to speak an exhortation, instruction, or exposition of the foregoing teaching and Scripture proofs, “...that all may learn, and all may be comforted.” (1 Corinthians 14:31)\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t`\n};\n\n// Lord's Supper Component\nvar Supper = {\n\tprops: [\"supper\"],\n\ttemplate: `\n\t\t<!-- Lord's Supper -->\n\t\t<div class=\"w-full p-8 flex flex-col justify-center items-center\">\n\t\t\t<!-- Item -->\n\t\t\t<div class=\"flex-col justify-center items-center\">\n\t\t\t\t<div class=\"main-text text-center\">The Lord's Supper</div>\n\t\t\t</div>\n\t\t\t<!-- Item -->\n\t\t\t<div class=\"flex-col justify-center items-center pt-4\">\n\t\t\t\t<div class=\"text-sm text-center\">Scripture passage in preparation for the Lord's Table and giving of thanks</div>\n\t\t\t\t<div class=\"sub-text text-center\">Don Stubblefield</div>\n\t\t\t</div>\n\t\t\t<!-- Item -->\n\t\t\t<div class=\"flex-col justify-center items-center pt-4\">\n\t\t\t\t<div class=\"text-sm text-center\">“And when He had given thanks, He brake it…”</div>\n\t\t\t\t<div class=\"sub-text text-center\">1 Corinthians 11:24a | Steve Hopkins</div>\n\t\t\t</div>\n\t\t\t<!-- Item -->\n\t\t\t<div class=\"flex-col justify-center items-center pt-4 w-2/3\">\n\t\t\t\t<div class=\"text-sm text-center text-grey-500 italic\">Congregation goes forward row by row to receive the elements and share in the Lord's Table.</div>\n\t\t\t</div>\n\t\t\t<!-- Item -->\n\t\t\t<div class=\"flex-col justify-center items-center pt-4 w-2/3\">\n\t\t\t\t<div class=\"text-sm text-center text-grey-500 italic\">Congregation returns and is seated, Mr. Stubblefield leads us to \"eat of that bread and drink of that cup\" together.</div>\n\t\t\t</div>\n\t\t</div>\n\t`\n};\n\n// Closing\nvar Closing = {\n\tprops: [\"closingChorus\"],\n\ttemplate: `\n\t\t<!-- Closing Stuff -->\n\t\t<div class=\"w-full p-8 flex flex-col justify-center items-center\">\n\t\t\t<!-- Item -->\n\t\t\t<div class=\"flex-col justify-center items-center\">\n\t\t\t\t<div class=\"main-text text-center\">Closing Chorus</div>\n\t\t\t\t<div class=\"italic text-sm text-center px-12 pt-4 text-grey-500\">\n\t\t\t\t\t{{ closingChorus }}\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<!-- Item -->\n\t\t\t<div class=\"flex-col justify-center items-center pt-4\">\n\t\t\t\t<div class=\"main-text text-center\">Closing Prayer, blessing of fellowship meal</div>\n\t\t\t\t<div class=\"sub-text text-center\">{{ assign() }}</div>\n\t\t\t</div>\n\t\t\t<!-- Item -->\n\t\t\t<div class=\"flex-col justify-center items-center pt-16\">\n\t\t\t\t<div class=\"main-text text-center\">Church is dismissed</div>\n\t\t\t</div>\n\t\t</div>\n\t`\n};\n\n\n// Divider\nvar Divider = {\n\tprops: [\"size\"],\n\ttemplate: `\n\t\t<!-- Divider -->\n\t\t<div class=\"w-full flex justify-center py-2\">\n\t\t\t<div class=\"border-b-2 border-grey-50\" :class=\"'w-' + size\"></div>\n\t\t</div>\n\t`\n};\n\n// Scripture\nvar Scripture = {\n\tprops: [\"scriptureIsLoading\", \"returnedScripture\"],\n\ttemplate: `\n        <!-- Loading Spinner -->\n        <center v-if=\"scriptureIsLoading\" class=\"py-8\"><div class=\"loading\"></div></center>\n        <!-- Start bible output app -->\n        <div class=\"py-8\" id=\"bible-output\" v-else>\n            <ul v-if=\"returnedScripture.length\" id=\"bible-list\" class=\"list-reset overflow-hidden\">\n                <!-- For each passage -->\n                <li v-for=\"(request, key) in returnedScripture\" class=\"relative\">\n                    <!-- For each book in the request -->\n                    <template v-for=\"(books, key) in request\" v-if=\"!isNaN(key)\">\n                        <!-- For book Name in books -->\n                        <template v-for=\"(book, bookName) in books\">\n                            <!-- For each chapter in the book -->\n                            <template v-for=\"(chapter, chapterNumber, chapterIndex) in book\">\n                                <!-- For each verse in the chapter -->\n                                <template v-for=\"(verse, verseNumber, verseIndex) in chapter\">\n\n                                    <!-- Output the verse -->\n                                    <span \n                                        :verse-name=\"[ bookName + ' ' + (Number(chapterNumber)+1) + ':' + verseNumber ]\"\n                                        :book=\"[ bookName ]\"\n                                        :chapter=\"[ (Number(chapterNumber)+1) ]\"\n                                        :verse=\"[ verseNumber ]\"\n                                        class=\"verse selection-green\"\n                                        ><em v-if=\"verseIndex > 0\" class=\"selection-green\"\n                                        >{{ verseNumber }} </em\n                                        >{{ verse }}\n                                    </span>\n\n                                </template>\n                            </template>\n                        </template>\n                    </template>\n                </li>\n            </ul>\n        </div>\n\t`\n};\n\n\n\n// Init Vue\nvar app = new Vue({\n\tel: \"#app\",\n\tdata: {\n\t\thymns: window.hymns,\n\t\tshowPages: false,\n\t\tassignmentIncrement: 0,\n\t\tmusicIncrement: 0,\n\t\tcurrentQuestion: 1,\n\t\tscriptureSearch: null,\n\t\topeningSentence: null,\n\t\topeningSentenceText: null,\n\t\tdonScripture: null,\n\t\tdonTitle: null,\n\t\tcorporateReading: null,\n\t\tsteveScripture: null,\n\t\tsteveTitle: null,\n\t\tscriptureIsLoading: false,\n\t\treturnedScripture: [],\n\t\tselectedHymns: [],\n\t\tnewHymn: null,\n\t\tprayerTopics: [],\n\t\tnewPrayer: null,\n\t\tslbcChapter: 1,\n\t\tslbcParagraph: 1,\n\t\tclosingChorus: null,\n\t\tslbc: slbc,\n\t\tnextSunday: moment().day(7).format(\"MMMM Do, YYYY\"),\n\t\tchurchProfile: {\n\t\t\t\"men\": [\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"Steve Hopkins\",\n\t\t\t\t\t\"canLeadMusic\": false,\n\t\t\t\t\t\"elder\": true,\n\t\t\t\t\t\"image\": null,\n\t\t\t\t\t'attending': false,\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"Don Stubblefield\",\n\t\t\t\t\t\"canLeadMusic\": false,\n\t\t\t\t\t\"elder\": true,\n\t\t\t\t\t\"image\": null,\n\t\t\t\t\t'attending': false,\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"Eric Bechler\",\n\t\t\t\t\t\"canLeadMusic\": true,\n\t\t\t\t\t\"elder\": false,\n\t\t\t\t\t\"image\": null,\n\t\t\t\t\t'attending': false,\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"Phil Long\",\n\t\t\t\t\t\"canLeadMusic\": true,\n\t\t\t\t\t\"elder\": false,\n\t\t\t\t\t\"image\": null,\n\t\t\t\t\t'attending': false,\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"Josh Glasscock\",\n\t\t\t\t\t\"canLeadMusic\": false,\n\t\t\t\t\t\"elder\": false,\n\t\t\t\t\t\"image\": null,\n\t\t\t\t\t'attending': false,\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"Keith Howington\",\n\t\t\t\t\t\"canLeadMusic\": false,\n\t\t\t\t\t\"elder\": false,\n\t\t\t\t\t\"image\": null,\n\t\t\t\t\t'attending': false,\n\t\t\t\t},\n\t\t\t],\n\t\t\t\"prayers\": [\n\t\t\t\t\"Prayer for the sick \",\n\t\t\t\t\"Prayer for local, state and national leaders \",\n\t\t\t\t\"Prayer for revival \",\n\t\t\t\t\"Prayer for persecuted brethren \",\n\t\t\t\t\"Prayer of imprecation \",\n\t\t\t]\n\t\t}\n\t},\n\tcomponents: {\n\t\t'church-header': ChurchHeader,\n\t\topening: Opening,\n\t\thymns: Hymns,\n\t\tteaching: Teaching,\n\t\tdivider: Divider,\n\t\tprayer: Prayer,\n\t\t'corporate-reading': CorporateReading,\n\t\tslbc: SLBC,\n\t\tsupper: Supper,\n\t\tclosing: Closing,\n\t\tscripture: Scripture,\n\t},\n\twatch: {\n\t\t// whenever question changes, this function will run\n\t\tscriptureSearch: function() {\n\t\t\tthis.getScripture();\n\t\t},\n\t\tcurrentQuestion: function() {\n\t\t\tVue.nextTick(function() {\n\t\t\t\tbreakPages()\n\t\t\t})\n\t\t},\n\t\tcurrentQuestion: function() {\n\t\t\t// Here we're going to redefine the scripture search based on what question is selected...\n\t\t\tthis.returnedScripture = []\n\n\t\t\t// If it's the second question, opening sentence\n\t\t\tif (this.currentQuestion == 2) {\n\t\t\t\tthis.scriptureSearch = this.openingSentence\n\t\t\t// If it's the 4th question, it's Don's Scripture\n\t\t\t} else if (this.currentQuestion == 4) {\n\t\t\t\tthis.scriptureSearch = this.donScripture\n\t\t\t// If it's the 6th question, it's Corporate Reading\n\t\t\t} else if (this.currentQuestion == 5) {\n\t\t\t\tthis.scriptureSearch = this.corporateReading\n\t\t\t// If it's the 8th question, it's Steve's Scripture\n\t\t\t} else if (this.currentQuestion == 7) {\n\t\t\t\tthis.scriptureSearch = this.steveScripture\n\t\t\t} else if (this.currentQuestion == 9) {\n\t\t\t\tVue.nextTick(function(){\n\t\t\t\t\tsetTimeout(function(){ breakPages(); }, 300);\n\t\t\t\t})\n\t\t\t}\n\n\t\t}\n\t},\n\tmethods: {\n\t\tshuffle(a) {\n\t\t    var j, x, i;\n\t\t    for (i = a.length - 1; i > 0; i--) {\n\t\t        j = Math.floor(Math.random() * (i + 1));\n\t\t        x = a[i];\n\t\t        a[i] = a[j];\n\t\t        a[j] = x;\n\t\t    }\n\t\t    return a;\n\t\t},\n\t\tgetDividerSize: function(index) {\n\t\t\tif (this.orderOfWorship.parts[index].type == 'teaching') {\n\t\t\t\treturn 'full'\n\t\t\t} else {\n\t\t\t\tif (this.orderOfWorship.parts.length != index+1) {\n\t\t\t\t\tif (this.orderOfWorship.parts[index+1].type == 'teaching') {\n\t\t\t\t\t\treturn 'full'\n\t\t\t\t\t} else {\n\t\t\t\t\t\treturn '2/3'\n\t\t\t\t\t}\n\t\t\t\t} \n\t\t\t}\n\t\t},\n\t\tcanShowDivider: function(index) {\n\t\t\tif (this.orderOfWorship.parts.length != index+1 && this.orderOfWorship.parts[index].type != 'church-header') {\n\t\t\t\treturn true\n\t\t\t}\n\t\t},\n\t\taddHymn: function() {\n\t\t\tif (this.selectedHymns.length == 4) {\n\t\t\t\tswal(\"You've already added four hymns!\")\n\t\t\t\treturn false\n\t\t\t}\n\t\t\tif (!isNaN(this.newHymn) && Number(this.newHymn) <= 730 && Number(this.newHymn) >= 1 ) {\n\t\t\t\tthis.selectedHymns.push(this.newHymn)\n\t\t\t\tthis.newHymn = null\n\t\t\t} else {\n\t\t\t\tswal(\"Please enter JUST a number between 1 and 730\")\n\t\t\t}\n\t\t},\n\t\taddPrayer: function() {\n\t\t\tthis.prayerTopics.push(this.newPrayer)\n\t\t\tthis.newPrayer = null\n\t\t},\n\t\tsaveAnswerAndContiunue: function() {\n\n\t\t\t// If it's the second question, opening sentence\n\t\t\tif (this.currentQuestion == 2) {\n\t\t\t\tthis.openingSentence = this.scriptureSearch\n\t\t\t\tthis.openingSentenceText = $(\"#bible-output\").text().trim()\n\t\t\t// If it's the 4th question, it's Don's Scripture\n\t\t\t} else if (this.currentQuestion == 4) {\n\t\t\t\tthis.donScripture = this.scriptureSearch\n\t\t\t\t// this.donScriptureText = $(\"#bible-output\").text().trim()\n\t\t\t// If it's the 6th question, it's Corporate Reading\n\t\t\t} else if (this.currentQuestion == 5) {\n\t\t\t\tthis.corporateReading = this.scriptureSearch\n\t\t\t// If it's the 8th question, it's Steve's Scripture\n\t\t\t} else if (this.currentQuestion == 7) {\n\t\t\t\tthis.steveScripture = this.scriptureSearch\n\t\t\t\t// this.steveScriptureText = $(\"#bible-output\").text().trim()\n\t\t\t}\n\n\t\t\tthis.scriptureSearch = null\n\t\t\tthis.currentQuestion += 1\n\t\t},\n\t\tgetScripture: _.debounce(\n\t\t\tfunction() {\n\t\t\t\t// Define the vue object\n\t\t\t\tvar vm = this;\n\t\t\t\tvar ref = vm.scriptureSearch\n\t\t\t\t// If there's actually a search...\n\t\t\t\tif (ref) {\n\n\t\t\t\t    console.log(\"Getting: \"+ref)\n\t\t\t\t    // Make the loader appear\n\t\t\t\t    vm.scriptureIsLoading = true\n\t\t\t\t    // Query the script for the verse\n\t\t\t\t    $.ajax({ \n\t\t\t\t        url: \"https://read2018.com/utilities/fetch_verses.py\",\n\t\t\t\t        type: \"post\",\n\t\t\t\t        data: {\n\t\t\t\t            \"requested_selection\": ref,\n\t\t\t\t            \"version\": \"kjv\",\n\t\t\t\t            \"timestamp\": Date.now()\n\t\t\t\t        },\n\t\t\t\t        success: function(response) {\n\t\t\t\t            // Hide the loader\n\t\t\t\t            vm.scriptureIsLoading = false\n\t\t\t\t            // Only update if it's the latest request\n\t\t\t                // Update Vue\n\t\t\t                vm.returnedScripture = response;\n\t\t\t\t        }\n\t\t\t\t    });\n\t\t\t\t// If there was no search...\n\t\t\t\t} else {\n\t\t\t\t\tvm.returnedScripture = [];\n\t\t\t\t}\n\t\t\t},\n\t\t\t// This is the number of milliseconds we wait for the\n\t\t\t// user to stop typing.\n\t\t\t1250\n\t\t)\n\t},\n\tcomputed: {\n\t\tattendingMen: function() {\n\t\t\tvar attendingMen = []\n\t\t\t$.each(this.churchProfile.men, function(key, man) {\n\t\t\t\tif (man.attending) {\n\t\t\t\t\tattendingMen.push(man)\n\t\t\t\t}\n\t\t\t})\n\t\t\treturn this.shuffle(attendingMen)\n\t\t},\n\t\tattendingMusicMen: function() {\n\t\t\tvar attendingMusicMen = []\n\t\t\t$.each(this.churchProfile.men, function(key, man) {\n\t\t\t\tif (man.attending && man.canLeadMusic) {\n\t\t\t\t\tattendingMusicMen.push(man)\n\t\t\t\t}\n\t\t\t})\n\t\t\treturn this.shuffle(attendingMusicMen)\n\t\t},\n\t}\n});\n\n// Make this a global function\nVue.prototype.assign = function(music=false) {\n\n\tif (music) {\n\t\tif (app.musicIncrement >= app.attendingMusicMen.length-1) {\n\t\t\tapp.musicIncrement = 0\n\t\t} else {\n\t\t\tapp.musicIncrement += 1\n\t\t}\n\t\treturn app.attendingMusicMen[app.musicIncrement]['name']\n\n\t} else {\n\n\t\tif (app.assignmentIncrement >= app.attendingMen.length-1) {\n\t\t\tapp.assignmentIncrement = 0\n\t\t} else {\n\t\t\tapp.assignmentIncrement += 1\n\t\t}\n\t\treturn app.attendingMen[app.assignmentIncrement]['name']\n\t}\n}",
 			"file": "src/js/custom/scripts.js",
+			"file_size": 17441,
+			"file_write_time": 131684754189315367,
 			"settings":
 			{
-				"buffer_size": 18985,
+				"buffer_size": 17421,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "src/js/addon/slbc.js",
+			"contents": "var citations = {}\nvar chapterNumber = null\n// For each paragraph\n$(\"p, h3\").each(function() {\n\t// If it's a chapter\n\tif ($(this).is(\"h3\") && $(this).text().includes(\"CHAPTER \", 0)) {\n\t\t// Grab the chapter number\n\t\tchapterNumber = $(this).text().split(\" \")[1].trim()\n\t\tconsole.log(chapterNumber)\n\t\t// Add it to the citations object\n\t\tcitations[chapterNumber] = {}\n\t}\n\t// If it contains the word \"Paragraph\"\n\tif ($(this).text().includes(\"Paragraph \", 0)) {\n\t\t// Find the paragraph number\n\t\tvar paragraphNumber = $(this).text().split(\" \")[1].replace(\".\", \"\").trim()\n\t\t// Define the citation paragraph object\n\t\tcitations[chapterNumber][paragraphNumber] = []\n\t\t// For each a tag in the paragraph\n\t\t$(this).find(\"a\").each(function() {\n\t\t\t// Add the text of the a tag to the citations object\n\t\t\tcitations[chapterNumber][paragraphNumber].push($(this).text().trim())\n\t\t\tconsole.log($(this).text())\n\t\t})\n\t}\n})",
 			"settings":
 			{
-				"buffer_size": 72644,
-				"encoding": "UTF-8",
+				"buffer_size": 900,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "$.each(slbc['chapters'], function(chapterNumber, chapter) {\n\t$.each(chapter['paragraphs'], function(paragraphNumber, paragraph) {\n\t\tconsole.log(chapterNumber + \" - \" + paragraphNumber)\n\t\tvar paragraphCitations = citations[chapterNumber][paragraphNumber]\n\t\tslbc['chapters'][chapterNumber]['paragraphs'][paragraphNumber] = {\n\t\t\t\"text\": paragraph,\n\t\t\t\"citations\": paragraphCitations\n\t\t}\n\t})\n})",
+			"settings":
+			{
+				"buffer_size": 390,
 				"line_ending": "Unix"
 			}
 		}
@@ -563,12 +576,12 @@
 				"Set Syntax: JavaScript"
 			],
 			[
-				"vue",
-				"Set Syntax: Vue Component"
-			],
-			[
 				"json",
 				"Set Syntax: JSON"
+			],
+			[
+				"vue",
+				"Set Syntax: Vue Component"
 			],
 			[
 				"html",
@@ -659,6 +672,7 @@
 	},
 	"file_history":
 	[
+		"/Users/coltonneifert/Sites/order_of_wroship/src/js/addon/slbc.js",
 		"/Users/coltonneifert/Sites/ncfic-vue/index.js",
 		"/Users/coltonneifert/Sites/order_of_worship/hymns.js",
 		"/Users/coltonneifert/Sites/order_of_worship/index.html",
@@ -785,8 +799,7 @@
 		"/Users/coltonneifert/Library/Caches/Transmit/413C96C1-9AA5-4DFC-92FF-2A2A9BB97D64/neifert.xyz/home/coltonncfic/webapps/uploads/colton/fix_bible_json.py",
 		"/Users/coltonneifert/Downloads/kjv_json",
 		"/Users/coltonneifert/Library/Caches/Transmit/3E355279-4A96-4C75-9FF7-6F4494163C98/neifert.xyz/home/coltonncfic/webapps/ncfic/public_html/api/store/ncfic_store_functions/ncfic_store_functions/colton_orders/store_order_item.py",
-		"/Users/coltonneifert/Library/Caches/Transmit/665E2B26-DFF6-4CB4-AB9C-4F407D8CB526/neifert.xyz/home/coltonncfic/webapps/ncfic/public_html/api/store/ncfic_store_functions/ncfic_store_functions/colton_orders/coupon.py",
-		"/Users/coltonneifert/Library/Caches/Transmit/E58C0FF3-4355-4D0E-8682-9A378C08841B/neifert.xyz/home/coltonncfic/webapps/tuliptimeoutreach/system/user/templates/default_site/events.group/post.html"
+		"/Users/coltonneifert/Library/Caches/Transmit/665E2B26-DFF6-4CB4-AB9C-4F407D8CB526/neifert.xyz/home/coltonncfic/webapps/ncfic/public_html/api/store/ncfic_store_functions/ncfic_store_functions/colton_orders/coupon.py"
 	],
 	"find":
 	{
@@ -804,6 +817,28 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"(\"music\")",
+			"currentQu",
+			"length()",
+			"Opening Sentence",
+			"breakP",
+			"hymn.number",
+			"opening",
+			":size",
+			"slbc.paragraph",
+			"corporateReading",
+			"Prayer for",
+			"v-if=\"part.type",
+			"announcements",
+			"hymns",
+			"attendingMen",
+			"assign()",
+			"assignedTo",
+			"$.each",
+			"computed",
+			"SLBC",
+			"Scripture",
+			"<script",
 			"slbc",
 			"sermon tit",
 			"title",
@@ -843,15 +878,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 14592,
+						"buffer_size": 15341,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								11060,
-								11060
+								11248,
+								11248
 							]
 						],
 						"settings":
@@ -860,7 +895,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 4104.0,
+						"translation.y": 4009.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -872,15 +907,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 18985,
+						"buffer_size": 17421,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4922,
-								4922
+								882,
+								882
 							]
 						],
 						"settings":
@@ -889,7 +924,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2073.0,
+						"translation.y": 4963.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
@@ -897,28 +932,53 @@
 				},
 				{
 					"buffer": 2,
-					"file": "src/js/addon/slbc.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 72644,
+						"buffer_size": 900,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								72644,
-								72644
+								0,
+								900
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 4743.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 390,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								390,
+								390
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,

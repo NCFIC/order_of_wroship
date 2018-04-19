@@ -22,7 +22,7 @@ var ChurchHeader = {
 			</div>
 			<!-- Item -->
 			<div class="flex-col justify-center items-center pt-4">
-				<div class="main-text text-center">Moment of Silence in Preparation for the Service</div>
+				<div class="main-text text-center">Silent Preparation for Commencement of Service</div>
 			</div>
 			<!-- Item -->
 			<div class="flex-col justify-center items-center pt-4">
@@ -79,7 +79,7 @@ var Teaching = {
 	props: ["scripture", "title", "assignedTo", "kind"],
 	template: `
 		<!-- Teaching  -->
-		<div class="w-full p-8 flex flex-col justify-center items-center">
+		<div class="w-full p-8 flex flex-col justify-center items-center border-t-2 border-grey-50">
 			<!-- Item -->
 			<div class="flex-col justify-center items-center">
 				<div class="main-text text-center">{{ kind }} - {{ scripture }}</div>
@@ -227,7 +227,7 @@ var Divider = {
 	props: ["size"],
 	template: `
 		<!-- Divider -->
-		<div class="w-full flex justify-center py-2">
+		<div class="divider w-full flex justify-center py-2">
 			<div class="border-b-2 border-grey-50" :class="'w-' + size"></div>
 		</div>
 	`
@@ -360,6 +360,11 @@ var app = new Vue({
 	watch: {
 		// whenever question changes, this function will run
 		scriptureSearch: function () {
+			if (this.scriptureSearch) {
+				this.scriptureIsLoading = true;
+			} else {
+				this.scriptureIsLoading = false;
+			}
 			this.getScripture();
 		},
 		currentQuestion: function () {
@@ -437,23 +442,57 @@ var app = new Vue({
 			this.prayerTopics.push(this.newPrayer);
 			this.newPrayer = null;
 		},
+		// Here we kind of do some validation...
 		saveAnswerAndContiunue: function () {
 
-			// If it's the second question, opening sentence
-			if (this.currentQuestion == 2) {
+			// If it's the first question, it's asking who's attending
+			if (this.currentQuestion == 1) {
+				// If nobody is attending...
+				if (this.attendingMen.length < 1) {
+					swal("Please select at least one man who's attending.");
+					return false;
+				}
+				// If it's the second question, opening sentence
+			} else if (this.currentQuestion == 2) {
 				this.openingSentence = this.scriptureSearch;
 				this.openingSentenceText = $("#bible-output").text().trim();
+				if (this.returnedScripture.length < 1) {
+					swal("Please enter a valid scripture passage (or wait for the passage to be fetched).");
+					return false;
+				}
+				// If it's the third question, hymns
+			} else if (this.currentQuestion == 3) {
+				// If less than four hymns are selected...
+				if (this.selectedHymns.length < 4) {
+					swal("Please select four hymns.");
+					return false;
+				}
 				// If it's the 4th question, it's Don's Scripture
 			} else if (this.currentQuestion == 4) {
-				this.donScripture = this.scriptureSearch;
-				// this.donScriptureText = $("#bible-output").text().trim()
+				// If Don is actually coming...
+				if (this.churchProfile.men[1].attending) {
+					this.donScripture = this.scriptureSearch;
+					// this.donScriptureText = $("#bible-output").text().trim()
+					if (this.returnedScripture.length < 1) {
+						swal("Please enter a valid scripture passage (or wait for the passage to be fetched).");
+						return false;
+					}
+				}
 				// If it's the 6th question, it's Corporate Reading
 			} else if (this.currentQuestion == 5) {
 				this.corporateReading = this.scriptureSearch;
+				if (this.returnedScripture.length < 1) {
+					swal("Please enter a valid scripture passage (or wait for the passage to be fetched).");
+					return false;
+				}
 				// If it's the 8th question, it's Steve's Scripture
 			} else if (this.currentQuestion == 7) {
 				this.steveScripture = this.scriptureSearch;
 				// this.steveScriptureText = $("#bible-output").text().trim()
+				if (this.returnedScripture.length < 1) {
+					swal("Please enter a valid scripture passage (or wait for the passage to be fetched).");
+					return false;
+				}
 			}
 
 			this.scriptureSearch = null;

@@ -142,16 +142,19 @@
 				</template>
 
 				<template v-if="currentQuestion == 4">
-					<!-- Question #2 -->
-					<div class="text-2xl font-semibold py-8 text-center">What will Don Stubblefield's Scripture passage be?</div>
-					<!-- Answer #2 -->
-					<input type="text" v-model="scriptureSearch" class="p-4 text-xl w-full border border-grey-100" placeholder="Enter Scripture Reference">
-					<scripture :scripture-is-loading="scriptureIsLoading" :returned-scripture="returnedScripture"></scripture>
-					<!-- Question #2 -->
-					<div class="text-2xl font-semibold py-8 text-center">What will his title be?</div>
-					<!-- Answer #2 -->
-					<input type="text" v-model="donTitle" class="p-4 text-xl w-full border border-grey-100 mb-8" placeholder="Enter a Sermon Title">
-					<div class="w-full border-b border-grey-50"></div>
+					<template v-if="churchProfile.men[1].attending">
+						<!-- Question #2 -->
+						<div class="text-2xl font-semibold py-8 text-center">What will Don Stubblefield's Scripture passage be?</div>
+						<!-- Answer #2 -->
+						<input type="text" v-model="scriptureSearch" class="p-4 text-xl w-full border border-grey-100" placeholder="Enter Scripture Reference">
+						<scripture :scripture-is-loading="scriptureIsLoading" :returned-scripture="returnedScripture"></scripture>
+						<!-- Question #2 -->
+						<div class="text-2xl font-semibold py-8 text-center">What will his title be?</div>
+						<!-- Answer #2 -->
+						<input type="text" v-model="donTitle" class="p-4 text-xl w-full border border-grey-100 mb-8" placeholder="Enter a Sermon Title">
+						<div class="w-full border-b border-grey-50"></div>
+					</template>
+					<template v-else><h3>You said Don wasn't coming...</h3></template>
 				</template>
 
 				<!-- <template v-if="currentQuestion == 5">
@@ -241,7 +244,7 @@
 		<!-- This is the main page container -->
 		<div v-if="currentQuestion == 9" id="page-container" class="w-full flex flex-col flex-grow justify-center items-center">
 			<!-- This is a page -->
-			<div class="bg-white page my-16 pb-16 flex flex-col flex-wrap">
+			<div class="bg-white page relative my-16 pb-16 flex flex-col flex-wrap">
 
 				<!-- Header -->
 				<church-header :date="nextSunday"></church-header>
@@ -252,11 +255,12 @@
 
 				<!-- Hymns -->
 				<hymns :hymns="[selectedHymns[0], selectedHymns[1]]" :hymns-list="hymns"></hymns>
-				<divider size="full"></divider>
 
 				<!-- Teaching -->
-				<teaching :scripture="donScripture" :title="donTitle" assigned-to="Don Stubblefield" kind="Teaching"></teaching>
-				<divider size="full"></divider>
+				<template v-if="churchProfile.men[1].attending">
+					<teaching :scripture="donScripture" :title="donTitle" assigned-to="Don Stubblefield" kind="Teaching"></teaching>
+					<divider size="full"></divider>
+				</template>
 
 				<!-- Prayer -->
 				<prayer :prayers="churchProfile.prayers"></prayer>
@@ -264,7 +268,7 @@
 
 				<!-- Hymns -->
 				<hymns :hymns="[selectedHymns[2]]" :hymns-list="hymns"></hymns>
-				<divider size="full"></divider>
+				<divider size="2/3"></divider>
 
 				<!-- Corporate Reading -->
 				<corporate-reading :corporate-reading="corporateReading"></corporate-reading>
@@ -272,11 +276,10 @@
 
 				<!-- SLBC -->
 				<slbc :slbc-chapter="slbcChapter" :slbc-paragraph="slbcParagraph" :slbc-data="slbc"></slbc>
-				<divider size="full"></divider>
+				<divider size="2/3"></divider>
 
 				<!-- Hymns -->
 				<hymns :hymns="[selectedHymns[3]]" :hymns-list="hymns"></hymns>
-				<divider size="full"></divider>
 
 				<!-- Teaching -->
 				<teaching :scripture="steveScripture" :title="steveTitle" assigned-to="Steve Hopkins" kind="Sermon"></teaching>
@@ -287,7 +290,10 @@
 				<divider size="2/3"></divider>
 
 				<!-- Closing -->
-				<closing :closing-chorus="closingChorus"></closing>					
+				<closing :closing-chorus="closingChorus"></closing>	
+
+				<!-- Page Number -->
+				<div class="absolute text-sm text-grey-500 pin-r pin-b p-6 italic">Page 1 of <span class="pages-total">1</span></div>
 
 			</div>
 		</div>
@@ -338,6 +344,7 @@ var slideout = new Slideout({
 		})
 	}
 
+	var pageNumber = 1
 	function breakPages() {
 		// Defind some variables we'll need...
 		var childShouldBreakPage = false
@@ -358,7 +365,8 @@ var slideout = new Slideout({
 						// Mark this as true
 						childShouldBreakPage = true;
 						// Since this is the first instance, make another page.
-						$("#page-container").append('<div class="bg-white page mb-16 py-16 flex flex-col flex-wrap justify-center items-center"></div>')
+						window.pageNumber += 1;
+						$("#page-container").append('<div class="bg-white page relative mb-16 py-16 flex flex-col flex-wrap justify-center items-center"><div class="absolute text-sm text-grey-500 pin-r pin-b p-6 italic">Page '+window.pageNumber+' of <span class="pages-total">4</span></div></div>')
 					}
 				}
 				// If this child should be on the next page...
@@ -373,7 +381,19 @@ var slideout = new Slideout({
 		if (childShouldBreakPage) {
 			// Loop through again
 			setTimeout(function(){ breakPages(); }, 300);
+		} else {
+			// Remove trailing dividers
+			$(".page").each(function() {
+				var page = $(this)
+				var lastChild = page.children().last()
+				if (lastChild.hasClass("divider")) {
+					lastChild.remove()
+			    }
+			})
+			// Update the number of pages total
+			$(".pages-total").each().text(window.pageNumber)
 		}
+
 		// Tag the references
 		refTagger.tag()
 	}
