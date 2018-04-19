@@ -341,8 +341,17 @@ var slideout = new Slideout({
 		})
 	}
 
+	function isOdd(num) { return num % 2;}
+
 	var pageNumber = 1
 	function breakPages() {
+		// Assume we'll add a page and increment the page number...
+		window.pageNumber += 1;
+		if (isOdd(window.pageNumber)) {
+			var appendSide="r";
+		} else {
+			var appendSide="l";
+		}
 		// Defind some variables we'll need...
 		var childShouldBreakPage = false
 		// Loop through all the pages...
@@ -362,8 +371,7 @@ var slideout = new Slideout({
 						// Mark this as true
 						childShouldBreakPage = true;
 						// Since this is the first instance, make another page.
-						window.pageNumber += 1;
-						$("#page-container").append('<div class="bg-white page relative mb-16 py-16 flex flex-col flex-wrap justify-center items-center"><div class="absolute text-sm text-grey-500 pin-r pin-b p-6 italic">Page '+window.pageNumber+' of <span class="pages-total">4</span></div></div>')
+						$("#page-container").append('<div class="bg-white page relative mb-16 py-16 flex flex-col flex-wrap justify-center items-center"><div class="absolute text-sm text-grey-500 pin-'+appendSide+' pin-b p-6 italic">Page '+window.pageNumber+' of <span class="pages-total">4</span></div></div>')
 					}
 				}
 				// If this child should be on the next page...
@@ -387,8 +395,11 @@ var slideout = new Slideout({
 					lastChild.remove()
 			    }
 			})
-			// Update the number of pages total
-			$(".pages-total").each().text(window.pageNumber)
+			// Add page number to the first page and Update the number of pages total
+			$(".page").first().append('<div class="absolute text-sm text-grey-500 pin-r pin-b p-6 italic">Page 1 of <span class="pages-total">1</span></div>')
+			$(".pages-total").each(function(){
+				$(this).text(window.pageNumber)
+			})
 		}
 
 		// Tag the references
