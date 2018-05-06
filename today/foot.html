@@ -1,0 +1,115 @@
+</div>
+
+<script src="./files/hymns.js"></script>
+<script src="./files/slbc.js"></script>
+<script src="./files/vue-router.js"></script>
+<script src="./files/axios.min.js"></script>
+<script src="./files/lodash.min.js"></script>
+<script src="./files/slideout.js"></script>
+
+<script>
+var slideout = new Slideout({
+	'panel': document.getElementById('panel'),
+	'menu': document.getElementById('menu'),
+	'padding': 360,
+	'tolerance': 70,
+	'side': 'right'
+});
+</script>
+
+<script>
+	var refTagger = {
+		settings: {
+			bibleVersion: "KJV"			
+		}
+	};
+	(function(d, t) {
+		var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
+		g.src = "//api.reftagger.com/v2/RefTagger.js";
+		s.parentNode.insertBefore(g, s);
+	}(document, "script"));
+</script>
+
+<!-- Make the Hymns Clickable -->
+<script>
+	function linkHymns() {
+		$(".hymn").each(function() {
+			// Find the number and get rid of the # sign
+			var hymnNumber = $(this).text().replace("#", "").trim()
+			// Wrap the number and title in an a tag
+			$(this).wrapInner('<a href="https://www.opc.org/' + hymns[hymnNumber]['link'] + '" target="_blank" class="no-underline"></a>');
+			var title = $(this).parent().find(".main-text")
+			title.wrapInner('<a href="https://www.opc.org/' + hymns[hymnNumber]['link'] + '" target="_blank"></a>');
+		})
+	}
+
+	function isOdd(num) { return num % 2;}
+
+	var pageNumber = 1
+	function breakPages() {
+		// Assume we'll add a page and increment the page number...
+		window.pageNumber += 1;
+		if (isOdd(window.pageNumber)) {
+			var appendSide="r";
+		} else {
+			var appendSide="l";
+		}
+		// Defind some variables we'll need...
+		var childShouldBreakPage = false
+		// Loop through all the pages...
+		$(".page").each(function() {
+			// Find the bottom of the page
+			var pageRightSide = $(".page").first().offset().left + $(".page").first().outerWidth()
+			// console.log("pageBottom:" + pageBottom)
+			// For each child...
+			$(this).children().each(function() {
+				// If we haven't already found a child that's going to break the page...
+				if (!childShouldBreakPage) {
+					// Find the bottom of the child
+					var childLeftSide = $(this).offset().left
+					// console.log("childBottom:" + childBottom)
+					// If the child goes under the page
+					if (childLeftSide >= pageRightSide) {
+						// Mark this as true
+						childShouldBreakPage = true;
+						// Since this is the first instance, make another page.
+						$("#page-container").append('<div class="bg-white page relative mb-16 py-16 flex flex-col flex-wrap justify-center items-center"><div class="absolute text-sm text-grey-500 pin-'+appendSide+' pin-b p-6 italic">Page '+window.pageNumber+' of <span class="pages-total">4</span></div></div>')
+					}
+				}
+				// If this child should be on the next page...
+				if (childShouldBreakPage) {
+					// Move this child into the new page.
+					$(".page").last().append($(this))
+				}
+
+			})
+		});
+		// If we had to break the page...
+		if (childShouldBreakPage) {
+			// Loop through again
+			setTimeout(function(){ breakPages(); }, 300);
+		} else {
+			// Remove trailing dividers
+			$(".page").each(function() {
+				var page = $(this)
+				var lastChild = page.children().last()
+				if (lastChild.hasClass("divider")) {
+					lastChild.remove()
+			    }
+			})
+			// Add page number to the first page and Update the number of pages total
+			$(".page").first().append('<div class="absolute text-sm text-grey-500 pin-r pin-b p-6 italic">Page 1 of <span class="pages-total">1</span></div>')
+			$(".pages-total").each(function(){
+				$(this).text(window.pageNumber)
+			})
+		}
+
+		// Tag the references
+		refTagger.tag()
+	}
+
+</script>
+
+<!-- <script src="./files/scripts-min.js"></script> -->
+
+</body><div><div class="gr_-editor gr-iframe-first-load" style="display: none;"><div class="gr_-editor_back"></div><iframe class="gr_-ifr gr-_dialog-content" src="./files/saved_resource.html"></iframe></div></div><grammarly-card><div></div></grammarly-card></html>
