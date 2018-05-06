@@ -307,6 +307,7 @@ var app = new Vue({
 		closingChorus: null,
 		slbc: slbc,
 		nextSunday: moment().day(7).format("MMMM Do, YYYY"),
+		nextSundayShort: moment().day(7).format("M-D-YY"),
 		churchProfile: {
 			"men": [
 				{
@@ -326,6 +327,13 @@ var app = new Vue({
 				{
 					"name": "Eric Bechler",
 					"canLeadMusic": true,
+					"elder": false,
+					"image": null,
+					'attending': false,
+				},
+				{
+					"name": "Russell Tutor",
+					"canLeadMusic": false,
 					"elder": false,
 					"image": null,
 					'attending': false,
@@ -385,11 +393,6 @@ var app = new Vue({
 			this.getScripture();
 		},
 		currentQuestion: function() {
-			Vue.nextTick(function() {
-				breakPages()
-			})
-		},
-		currentQuestion: function() {
 			// Here we're going to redefine the scripture search based on what question is selected...
 			this.returnedScripture = []
 
@@ -407,7 +410,7 @@ var app = new Vue({
 				this.scriptureSearch = this.steveScripture
 			} else if (this.currentQuestion == 9) {
 				Vue.nextTick(function(){
-					setTimeout(function(){ breakPages(); }, 300);
+					// setTimeout(function(){ breakPages(); }, 300);
 				})
 			}
 
@@ -423,6 +426,29 @@ var app = new Vue({
 		        a[j] = x;
 		    }
 		    return a;
+		},
+		saveOnline: function(){
+			// Save a local file because we should...
+			var text = $("#app").html()
+			    blob = new Blob([text], { type: 'text/plain' }),
+			    anchor = document.createElement('a');
+
+			anchor.download = this.nextSundayShort+".html";
+			anchor.href = (window.webkitURL || window.URL).createObjectURL(blob);
+			anchor.dataset.downloadurl = ['text/plain', anchor.download, anchor.href].join(':');
+			anchor.click();
+		    // Query the script for the verse
+		    $.ajax({ 
+		        url: "http://neifert.xyz/bbc/today/utilities/save.py",
+		        type: "post",
+		        data: {
+		            "filename": this.nextSundayShort,
+		            "file": $("#app").html()
+		        },
+		        success: function(response) {
+		        	swal("Saved!", "Success!", "success")
+		        }
+		    });
 		},
 		getDividerSize: function(index) {
 			if (this.orderOfWorship.parts[index].type == 'teaching') {
@@ -576,7 +602,7 @@ var app = new Vue({
 });
 
 // Make this a global function
-Vue.prototype.assign = function(music=false) {
+Vue.prototype.assign = function(music=false, elder=false) {
 
 	if (music) {
 		if (app.musicIncrement >= app.attendingMusicMen.length-1) {
@@ -588,11 +614,22 @@ Vue.prototype.assign = function(music=false) {
 
 	} else {
 
+		while (elder != app.attendingMen[app.assignmentIncrement]['elder']) {
+			if (app.assignmentIncrement >= app.attendingMen.length-1) {
+				app.assignmentIncrement = 0
+			} else {
+				app.assignmentIncrement += 1
+			}
+		}
+
+		var man = app.attendingMen[app.assignmentIncrement]['name']
+
 		if (app.assignmentIncrement >= app.attendingMen.length-1) {
 			app.assignmentIncrement = 0
 		} else {
 			app.assignmentIncrement += 1
 		}
-		return app.attendingMen[app.assignmentIncrement]['name']
+		
+		return man
 	}
 }

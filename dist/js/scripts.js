@@ -323,6 +323,12 @@ var app = new Vue({
 				"image": null,
 				'attending': false
 			}, {
+				"name": "Russell Tutor",
+				"canLeadMusic": false,
+				"elder": false,
+				"image": null,
+				'attending': false
+			}, {
 				"name": "Phil Long",
 				"canLeadMusic": true,
 				"elder": false,
@@ -368,11 +374,6 @@ var app = new Vue({
 			this.getScripture();
 		},
 		currentQuestion: function () {
-			Vue.nextTick(function () {
-				breakPages();
-			});
-		},
-		currentQuestion: function () {
 			// Here we're going to redefine the scripture search based on what question is selected...
 			this.returnedScripture = [];
 
@@ -390,9 +391,7 @@ var app = new Vue({
 				this.scriptureSearch = this.steveScripture;
 			} else if (this.currentQuestion == 9) {
 				Vue.nextTick(function () {
-					setTimeout(function () {
-						breakPages();
-					}, 300);
+					// setTimeout(function(){ breakPages(); }, 300);
 				});
 			}
 		}
@@ -557,7 +556,7 @@ var app = new Vue({
 });
 
 // Make this a global function
-Vue.prototype.assign = function (music = false) {
+Vue.prototype.assign = function (music = false, elder = false) {
 
 	if (music) {
 		if (app.musicIncrement >= app.attendingMusicMen.length - 1) {
@@ -568,11 +567,22 @@ Vue.prototype.assign = function (music = false) {
 		return app.attendingMusicMen[app.musicIncrement]['name'];
 	} else {
 
+		while (elder != app.attendingMen[app.assignmentIncrement]['elder']) {
+			if (app.assignmentIncrement >= app.attendingMen.length - 1) {
+				app.assignmentIncrement = 0;
+			} else {
+				app.assignmentIncrement += 1;
+			}
+		}
+
+		var man = app.attendingMen[app.assignmentIncrement]['name'];
+
 		if (app.assignmentIncrement >= app.attendingMen.length - 1) {
 			app.assignmentIncrement = 0;
 		} else {
 			app.assignmentIncrement += 1;
 		}
-		return app.attendingMen[app.assignmentIncrement]['name'];
+
+		return man;
 	}
 };

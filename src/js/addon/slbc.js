@@ -13,7 +13,7 @@ slbc = {
             "Luke 16:29,31",
             "Eph. 2:20",
             "Rom. 1:19-21",
-            "2:14,15",
+            "Rom. 2:14,15",
             "Psalm 19:1-3",
             "Heb. 1:1",
             "Prov. 22:19-21",
@@ -224,8 +224,8 @@ slbc = {
             "2 Thess. 2:13",
             "1 Pet. 1:5",
             "John 10:26",
-            "17:9",
-            "6:64"
+            "John 17:9",
+            "John 6:64"
           ]
         },
         "7": {
@@ -390,7 +390,7 @@ slbc = {
             "Job 14:4",
             "Eph. 2:3",
             "Rom. 6:20",
-            "5:12",
+            "Rom. 5:12",
             "Heb. 2:14,15",
             "1 Thess. 1:10"
           ]
@@ -482,7 +482,7 @@ slbc = {
             "Gal. 4,4",
             "Rom. 8:3",
             "Heb. 2:14,16,17",
-            "4:15",
+            "Heb. 4:15",
             "Matt. 1:22,23",
             "Luke 1:27,31,35",
             "Rom. 9:5",
@@ -616,7 +616,7 @@ slbc = {
           "text": "Man by his fall into a state of sin hath wholly lost all ability of Will, to any spiritual good accompanying salvation; so as a natural man, being altogether averse from that good, and dead in Sin, is not able, by his own strength, to convert himself; or to prepare himself thereunto.",
           "citations": [
             "Rom. 5:6",
-            "8:7",
+            "Rom. 8:7",
             "Eph. 2:1,5",
             "Titus 3:3-5",
             "John 6:44"
@@ -700,7 +700,7 @@ slbc = {
           "text": "Those whom God Effectually calleth, he also freely justifieth, not by infusing Righteousness into them, but by pardoning their sins, and by accounting, and accepting their Persons as Righteous; not for any thing wrought in them, or done by them, but for Christ's sake alone, not by imputing faith it self, the act of beleiving, or any other evangelical obedience to them, as their Righteousness; but by imputing Christs active obedience unto the whole Law, and passive obedience in his death, for their whole and sole Righteousnnss, they receiving, and resting on him, and his Righteousness, by Faith; which faith they have not of themselves, it is the gift of God.",
           "citations": [
             "Rom. 3:24",
-            "8:30",
+            "Rom. 8:30",
             "Rom. 4:5-8",
             "Eph. 1:7",
             "1 Cor. 1:30,31",
@@ -729,7 +729,7 @@ slbc = {
             "2 Cor. 5:21",
             "Rom. 3:26",
             "Eph. 1:6,7",
-            "2:7"
+            "Eph. 2:7"
           ]
         },
         "4": {
@@ -787,7 +787,7 @@ slbc = {
             "Lam. 3:31",
             "Eph. 4:30",
             "Heb. 1:14",
-            "6:12"
+            "Heb. 6:12"
           ]
         }
       }
@@ -826,7 +826,7 @@ slbc = {
             "Rom. 6:14",
             "Eph. 4:15,16",
             "2 Cor. 3:18",
-            "7:1"
+            "2 Cor. 7:1"
           ]
         }
       }
@@ -1024,7 +1024,7 @@ slbc = {
           "text": "This perseverance of the Saints depends not upon their own free will; but upon the immutability of the decree of Election flowing from the free and unchangeable love of God the Father; upon the efficacy of the merit and intercession of Jesus Christ and Union with him, the oath of God, the abiding of his Spirit & the seed of God within them, and the nature of the Covenant of Grace from all which ariseth also the certainty and infallibility thereof.",
           "citations": [
             "Rom. 8:30",
-            "9:11,16",
+            "Rom. 9:11,16",
             "Rom. 5:9,10",
             "John 14:19",
             "Heb. 6:17,18",
@@ -1055,8 +1055,8 @@ slbc = {
             "Job 8:13,14",
             "Matt. 7:22,23",
             "1 John 2:3",
-            "3:14,18,19,21,24",
-            "5:13",
+            "1 John 3:14,18,19,21,24",
+            "1 John 5:13",
             "Rom. 5:2,5"
           ]
         },
@@ -1156,7 +1156,7 @@ slbc = {
             "Rom. 8:1",
             "10:4",
             "Rom. 3:20",
-            "7:7",
+            "Rom. 7:7",
             "Rom. 6:12-14",
             "1 Pet. 3:8-13"
           ]
@@ -1469,7 +1469,7 @@ slbc = {
             "Heb. 12:23",
             "Col. 1:18",
             "Eph. 1:10,22,23",
-            "5:23,27,32"
+            "Eph. 5:23,27,32"
           ]
         },
         "2": {
@@ -1518,7 +1518,7 @@ slbc = {
             "Rom. 1:7",
             "1 Cor. 1:2",
             "Acts 2:41,42",
-            "5:13,14",
+            "Acts 5:13,14",
             "2 Cor. 9:13"
           ]
         },
@@ -1527,7 +1527,7 @@ slbc = {
           "citations": [
             "Matt. 18:17,18",
             "1 Cor. 5:4,5",
-            "5:13",
+            "1 Cor. 5:13",
             "2 Cor. 2:6-8"
           ]
         },
@@ -1610,7 +1610,7 @@ slbc = {
             "Rom. 6:5,6",
             "Eph. 4:15,16",
             "1 Cor. 12:7",
-            "3:21-23",
+            "1 Cor. 3:21-23",
             "1 Thess. 5:11,14",
             "Rom. 1:12",
             "1 John 3:17,18",
@@ -1621,7 +1621,7 @@ slbc = {
           "text": "Saints by profession are bound to maintain an holy fellowship and communion in the worship of God, and in performing such other spiritual services, as tend to their mutual edification; as also in relieving each other in outward things according to their several abilities, and necessities; which communion according to the rule of the Gospel, though especially to be exercised by them, in the relations wherein they stand, whether in families, or Churches; yet as God offereth opportunity is to be extended to all the houshold of faith, even all those who in every place call upon the name of the Lord Jesus; nevertheless their communion one with another as Saints, doth not take away or infringe, the title or propriety, which each man hath in his goods and possessions.",
           "citations": [
             "Heb. 10:24,25",
-            "3:12,13",
+            "Heb. 3:12,13",
             "Acts 11:29,30",
             "Eph. 6:4",
             "1 Cor. 12:14-27",
@@ -1669,9 +1669,9 @@ slbc = {
           "citations": [
             "Mark 16:16",
             "Acts 8:36,37",
-            "2:41",
-            "8:12",
-            "18:8"
+            "Acts 2:41",
+            "Acts 8:12",
+            "Acts 18:8"
           ]
         },
         "3": {
