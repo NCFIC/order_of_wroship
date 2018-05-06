@@ -303,6 +303,7 @@ var app = new Vue({
 		closingChorus: null,
 		slbc: slbc,
 		nextSunday: moment().day(7).format("MMMM Do, YYYY"),
+		nextSundayShort: moment().day(7).format("M-D-YY"),
 		churchProfile: {
 			"men": [{
 				"name": "Steve Hopkins",
@@ -391,7 +392,7 @@ var app = new Vue({
 				this.scriptureSearch = this.steveScripture;
 			} else if (this.currentQuestion == 9) {
 				Vue.nextTick(function () {
-					// setTimeout(function(){ breakPages(); }, 300);
+					this.saveOnline();
 				});
 			}
 		}
@@ -406,6 +407,37 @@ var app = new Vue({
 				a[j] = x;
 			}
 			return a;
+		},
+		saveOnline: function () {
+			// Save a local file because we should...
+			var text = $("#app").html();
+			blob = new Blob([text], { type: 'text/plain' }), anchor = document.createElement('a');
+
+			anchor.download = this.nextSundayShort + ".html";
+			anchor.href = (window.webkitURL || window.URL).createObjectURL(blob);
+			anchor.dataset.downloadurl = ['text/plain', anchor.download, anchor.href].join(':');
+			anchor.click();
+			// Send the contents of #app to the server
+			$.ajax({
+				url: "http://neifert.xyz/bbc/today/utilities/save.py",
+				type: "post",
+				data: {
+					"filename": this.nextSundayShort,
+					"file": $("#app").html()
+				},
+				success: function (response) {
+					swal("Saved!", "Success!", "success");
+					setTimeout(function () {
+						breakPages();
+					}, 300);
+				},
+				error: function () {
+					swal("Not Saved!", "Unable to save online!", "error");
+					setTimeout(function () {
+						breakPages();
+					}, 300);
+				}
+			});
 		},
 		getDividerSize: function (index) {
 			if (this.orderOfWorship.parts[index].type == 'teaching') {

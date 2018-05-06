@@ -437,7 +437,7 @@ var app = new Vue({
 			anchor.href = (window.webkitURL || window.URL).createObjectURL(blob);
 			anchor.dataset.downloadurl = ['text/plain', anchor.download, anchor.href].join(':');
 			anchor.click();
-		    // Query the script for the verse
+		    // Send the contents of #app to the server
 		    $.ajax({ 
 		        url: "http://neifert.xyz/bbc/today/utilities/save.py",
 		        type: "post",
