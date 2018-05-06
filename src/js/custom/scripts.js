@@ -28,7 +28,7 @@ var Opening = {
 			<!-- Item -->
 			<div class="flex-col justify-center items-center pt-4">
 				<div class="main-text text-center">Opening Prayer</div>
-				<div class="sub-text text-center">{{ assign() }}</div>
+				<div class="sub-text text-center assign">{{ assign() }}</div>
 			</div>
 			<!-- Item -->
 			<div class="flex-col justify-center items-center pt-4">
@@ -66,7 +66,7 @@ var Hymns = {
 								{{ hymnsList[hymn]['name'] }}
 							</a>
 						</div>
-						<div class="sub-text" v-if="hymns.length > 1">{{ assign() }} - Scripture</div>
+						<div class="sub-text" v-if="hymns.length > 1 assign">{{ assign() }} - Scripture</div>
 						<div class="sub-text" v-else>{{ assign(true) }}</div>
 					</div>
 				</div>
@@ -107,7 +107,7 @@ var Prayer = {
 			<div class="flex-col justify-center items-center pt-4">
 				<ul class="p-0">
 					<li v-for="prayer in prayers">
-						<span class="text-sm">{{ prayer }}</span><span> - </span><span class="sub-text">{{ assign() }}</span>
+						<span class="text-sm">{{ prayer }}</span><span> - </span><span class="sub-text assign">{{ assign() }}</span>
 					</li>
 				</ul>
 			</div>
@@ -127,7 +127,7 @@ var CorporateReading = {
 			<!-- Item -->
 			<div class="flex-col justify-center items-center">
 				<div class="main-text text-center">Corporate Reading</div>
-				<div class="sub-text text-center">{{ corporateReading }} - {{ assign() }}</div>
+				<div class="sub-text text-center">{{ corporateReading }} - <span class="assign">{{ assign() }}</span></div>
 			</div>
 		</div>
 	`
@@ -142,7 +142,7 @@ var SLBC = {
 			<!-- Item -->
 			<div class="flex-col justify-center items-center">
 				<div class="main-text text-center">Second London Baptist Confession of 1689</div>
-				<div class="sub-text text-center">Chapter {{ slbcChapter }}: {{ slbcData.chapters[slbcChapter].title }} (Paragraph {{ slbcParagraph }}) - {{ assign() }}</div>
+				<div class="sub-text text-center">Chapter {{ slbcChapter }}: {{ slbcData.chapters[slbcChapter].title }} (Paragraph {{ slbcParagraph }}) - <span class="assign">{{ assign() }}</span></div>
 				<div class="italic text-xs text-center px-12 pt-4">
 					{{ slbcData.chapters[slbcChapter].paragraphs[slbcParagraph].text }}
 				</div>
@@ -151,7 +151,7 @@ var SLBC = {
 			<div class="flex-col justify-center items-center pt-4">
 				<ul class="p-0">
 					<li v-for="reference in slbcData.chapters[slbcChapter].paragraphs[slbcParagraph].citations">
-						<span class="text-sm">{{ reference }}</span><span> - </span><span class="sub-text">{{ assign() }}</span>
+						<span class="text-sm">{{ reference }}</span><span> - </span><span class="sub-text assign">{{ assign() }}</span>
 					</li>
 				</ul>
 			</div>
@@ -213,7 +213,7 @@ var Closing = {
 			<!-- Item -->
 			<div class="flex-col justify-center items-center pt-4">
 				<div class="main-text text-center">Closing Prayer, blessing of fellowship meal</div>
-				<div class="sub-text text-center">{{ assign() }}</div>
+				<div class="sub-text text-center assign">{{ assign() }}</div>
 			</div>
 			<!-- Item -->
 			<div class="flex-col justify-center items-center pt-16">
