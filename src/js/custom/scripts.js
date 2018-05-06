@@ -410,7 +410,7 @@ var app = new Vue({
 				this.scriptureSearch = this.steveScripture
 			} else if (this.currentQuestion == 9) {
 				Vue.nextTick(function(){
-					// setTimeout(function(){ breakPages(); }, 300);
+					this.saveOnline()
 				})
 			}
 
@@ -447,6 +447,11 @@ var app = new Vue({
 		        },
 		        success: function(response) {
 		        	swal("Saved!", "Success!", "success")
+		        	setTimeout(function(){ breakPages(); }, 300);
+		        },
+		        error: function() {
+		        	swal("Not Saved!", "Unable to save online!", "error")
+		        	setTimeout(function(){ breakPages(); }, 300);	
 		        }
 		    });
 		},
