@@ -393,6 +393,7 @@ var app = new Vue({
 			this.getScripture();
 		},
 		currentQuestion: function() {
+			vm = this;
 			// Here we're going to redefine the scripture search based on what question is selected...
 			this.returnedScripture = []
 
@@ -410,7 +411,7 @@ var app = new Vue({
 				this.scriptureSearch = this.steveScripture
 			} else if (this.currentQuestion == 9) {
 				Vue.nextTick(function(){
-					this.saveOnline()
+					vm.saveOnline()
 				})
 			}
 
@@ -609,6 +610,7 @@ var app = new Vue({
 // Make this a global function
 Vue.prototype.assign = function(music=false, elder=false) {
 
+	// If we're only doing musicable people...
 	if (music) {
 		if (app.musicIncrement >= app.attendingMusicMen.length-1) {
 			app.musicIncrement = 0
@@ -617,8 +619,10 @@ Vue.prototype.assign = function(music=false, elder=false) {
 		}
 		return app.attendingMusicMen[app.musicIncrement]['name']
 
+	// If the people don't need to be musicable
 	} else {
 
+		// if it's supposed to be an elder or not..
 		while (elder != app.attendingMen[app.assignmentIncrement]['elder']) {
 			if (app.assignmentIncrement >= app.attendingMen.length-1) {
 				app.assignmentIncrement = 0
