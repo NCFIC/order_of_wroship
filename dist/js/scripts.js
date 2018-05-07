@@ -27,7 +27,7 @@ var ChurchHeader = {
 			<!-- Item -->
 			<div class="flex-col justify-center items-center pt-4">
 				<div class="main-text text-center">Opening Prayer</div>
-				<div class="sub-text text-center">{{ assign() }}</div>
+				<div class="sub-text text-center assign">{{ assign() }}</div>
 			</div>
 			<!-- Item -->
 			<div class="flex-col justify-center items-center pt-4">
@@ -50,7 +50,7 @@ var Hymns = {
 			<!-- Item -->
 			<div class="flex-col justify-center items-center pb-4" v-if="hymns.length > 1">
 				<div class="main-text text-center">Congregational Singing</div>
-				<div class="sub-text text-center">{{ assign(true) }}</div>
+				<div class="sub-text text-center assign">{{ assign(true) }}</div>
 			</div>
 			<!-- Songs -->
 			<div class="">
@@ -65,8 +65,8 @@ var Hymns = {
 								{{ hymnsList[hymn]['name'] }}
 							</a>
 						</div>
-						<div class="sub-text" v-if="hymns.length > 1">{{ assign() }} - Scripture</div>
-						<div class="sub-text" v-else>{{ assign(true) }}</div>
+						<div class="sub-text" v-if="hymns.length > 1"><span class="assign">{{ assign() }}</span> - Scripture</div>
+						<div class="sub-text assign" v-else>{{ assign(true) }}</div>
 					</div>
 				</div>
 			</div>
@@ -106,7 +106,7 @@ var Prayer = {
 			<div class="flex-col justify-center items-center pt-4">
 				<ul class="p-0">
 					<li v-for="prayer in prayers">
-						<span class="text-sm">{{ prayer }}</span><span> - </span><span class="sub-text">{{ assign() }}</span>
+						<span class="text-sm">{{ prayer }}</span><span> - </span><span class="sub-text assign">{{ assign() }}</span>
 					</li>
 				</ul>
 			</div>
@@ -126,7 +126,7 @@ var CorporateReading = {
 			<!-- Item -->
 			<div class="flex-col justify-center items-center">
 				<div class="main-text text-center">Corporate Reading</div>
-				<div class="sub-text text-center">{{ corporateReading }} - {{ assign() }}</div>
+				<div class="sub-text text-center">{{ corporateReading }} - <span class="assign">{{ assign() }}</span></div>
 			</div>
 		</div>
 	`
@@ -141,7 +141,7 @@ var SLBC = {
 			<!-- Item -->
 			<div class="flex-col justify-center items-center">
 				<div class="main-text text-center">Second London Baptist Confession of 1689</div>
-				<div class="sub-text text-center">Chapter {{ slbcChapter }}: {{ slbcData.chapters[slbcChapter].title }} (Paragraph {{ slbcParagraph }}) - {{ assign() }}</div>
+				<div class="sub-text text-center">Chapter {{ slbcChapter }}: {{ slbcData.chapters[slbcChapter].title }} (Paragraph {{ slbcParagraph }}) - <span class="assign">{{ assign() }}</span></div>
 				<div class="italic text-xs text-center px-12 pt-4">
 					{{ slbcData.chapters[slbcChapter].paragraphs[slbcParagraph].text }}
 				</div>
@@ -150,7 +150,7 @@ var SLBC = {
 			<div class="flex-col justify-center items-center pt-4">
 				<ul class="p-0">
 					<li v-for="reference in slbcData.chapters[slbcChapter].paragraphs[slbcParagraph].citations">
-						<span class="text-sm">{{ reference }}</span><span> - </span><span class="sub-text">{{ assign() }}</span>
+						<span class="text-sm">{{ reference }}</span><span> - </span><span class="sub-text assign">{{ assign() }}</span>
 					</li>
 				</ul>
 			</div>
@@ -212,7 +212,7 @@ var Closing = {
 			<!-- Item -->
 			<div class="flex-col justify-center items-center pt-4">
 				<div class="main-text text-center">Closing Prayer, blessing of fellowship meal</div>
-				<div class="sub-text text-center">{{ assign() }}</div>
+				<div class="sub-text text-center assign">{{ assign() }}</div>
 			</div>
 			<!-- Item -->
 			<div class="flex-col justify-center items-center pt-16">
@@ -375,6 +375,7 @@ var app = new Vue({
 			this.getScripture();
 		},
 		currentQuestion: function () {
+			vm = this;
 			// Here we're going to redefine the scripture search based on what question is selected...
 			this.returnedScripture = [];
 
@@ -392,7 +393,7 @@ var app = new Vue({
 				this.scriptureSearch = this.steveScripture;
 			} else if (this.currentQuestion == 9) {
 				Vue.nextTick(function () {
-					this.saveOnline();
+					vm.saveOnline();
 				});
 			}
 		}
@@ -413,7 +414,7 @@ var app = new Vue({
 			var text = $("#app").html();
 			blob = new Blob([text], { type: 'text/plain' }), anchor = document.createElement('a');
 
-			anchor.download = this.nextSundayShort + ".html";
+			anchor.download = "BBC Order of Worship - " + this.nextSundayShort + ".html";
 			anchor.href = (window.webkitURL || window.URL).createObjectURL(blob);
 			anchor.dataset.downloadurl = ['text/plain', anchor.download, anchor.href].join(':');
 			anchor.click();
@@ -549,11 +550,18 @@ var app = new Vue({
 						"timestamp": Date.now()
 					},
 					success: function (response) {
-						// Hide the loader
-						vm.scriptureIsLoading = false;
-						// Only update if it's the latest request
-						// Update Vue
-						vm.returnedScripture = response;
+						// If it's not invalid...
+						if (response[0].request != "Invalid Request") {
+							// Hide the loader
+							vm.scriptureIsLoading = false;
+							// Only update if it's the latest request
+							// Update Vue
+							vm.returnedScripture = response;
+						} else {
+							vm.scriptureIsLoading = false;
+							vm.returnedScripture = [];
+							swal("Invalid Scripture Reference.");
+						}
 					}
 				});
 				// If there was no search...
@@ -590,6 +598,7 @@ var app = new Vue({
 // Make this a global function
 Vue.prototype.assign = function (music = false, elder = false) {
 
+	// If we're only doing musicable people...
 	if (music) {
 		if (app.musicIncrement >= app.attendingMusicMen.length - 1) {
 			app.musicIncrement = 0;
@@ -597,8 +606,11 @@ Vue.prototype.assign = function (music = false, elder = false) {
 			app.musicIncrement += 1;
 		}
 		return app.attendingMusicMen[app.musicIncrement]['name'];
+
+		// If the people don't need to be musicable
 	} else {
 
+		// if it's supposed to be an elder or not..
 		while (elder != app.attendingMen[app.assignmentIncrement]['elder']) {
 			if (app.assignmentIncrement >= app.attendingMen.length - 1) {
 				app.assignmentIncrement = 0;
@@ -618,3 +630,31 @@ Vue.prototype.assign = function (music = false, elder = false) {
 		return man;
 	}
 };
+
+// On click assign...
+$("#app").on("click", ".assign", function () {
+	// Define the "assign" field you just picked
+	var assignField = $(this);
+	var assignFieldIndex = $(this).index(".assign");
+	// Html container for guys...
+	var guyOptions;
+	// For each guy
+	$.each(app.churchProfile.men, function (key, man) {
+		// If the guy is attending...
+		if (man.attending) {
+			guyOptions += `
+				<div 
+					class="cursor-pointer text-lg" 
+					onclick="$($('.assign')[` + assignFieldIndex + `]).html('${man.name}'); swal.close();"
+				>
+					${man.name}
+				</div>
+			`;
+		}
+	});
+	// Open the sweet alert
+	swal({
+		title: 'Select a Man',
+		html: guyOptions
+	});
+});

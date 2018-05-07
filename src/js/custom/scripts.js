@@ -51,7 +51,7 @@ var Hymns = {
 			<!-- Item -->
 			<div class="flex-col justify-center items-center pb-4" v-if="hymns.length > 1">
 				<div class="main-text text-center">Congregational Singing</div>
-				<div class="sub-text text-center">{{ assign(true) }}</div>
+				<div class="sub-text text-center assign">{{ assign(true) }}</div>
 			</div>
 			<!-- Songs -->
 			<div class="">
@@ -66,8 +66,8 @@ var Hymns = {
 								{{ hymnsList[hymn]['name'] }}
 							</a>
 						</div>
-						<div class="sub-text" v-if="hymns.length > 1 assign">{{ assign() }} - Scripture</div>
-						<div class="sub-text" v-else>{{ assign(true) }}</div>
+						<div class="sub-text" v-if="hymns.length > 1"><span class="assign">{{ assign() }}</span> - Scripture</div>
+						<div class="sub-text assign" v-else>{{ assign(true) }}</div>
 					</div>
 				</div>
 			</div>
@@ -434,7 +434,7 @@ var app = new Vue({
 			    blob = new Blob([text], { type: 'text/plain' }),
 			    anchor = document.createElement('a');
 
-			anchor.download = this.nextSundayShort+".html";
+			anchor.download = "BBC Order of Worship - "+this.nextSundayShort+".html";
 			anchor.href = (window.webkitURL || window.URL).createObjectURL(blob);
 			anchor.dataset.downloadurl = ['text/plain', anchor.download, anchor.href].join(':');
 			anchor.click();
@@ -568,11 +568,18 @@ var app = new Vue({
 				            "timestamp": Date.now()
 				        },
 				        success: function(response) {
-				            // Hide the loader
-				            vm.scriptureIsLoading = false
-				            // Only update if it's the latest request
-			                // Update Vue
-			                vm.returnedScripture = response;
+				        	// If it's not invalid...
+				        	if (response[0].request != "Invalid Request") {
+					            // Hide the loader
+					            vm.scriptureIsLoading = false
+					            // Only update if it's the latest request
+				                // Update Vue
+				                vm.returnedScripture = response;
+				        	} else {
+				        		vm.scriptureIsLoading = false
+				        		vm.returnedScripture = [];
+				        		swal("Invalid Scripture Reference.")
+				        	}
 				        }
 				    });
 				// If there was no search...
@@ -642,3 +649,31 @@ Vue.prototype.assign = function(music=false, elder=false) {
 		return man
 	}
 }
+
+// On click assign...
+$("#app").on("click", ".assign", function() {
+	// Define the "assign" field you just picked
+	var assignField = $(this);
+	var assignFieldIndex = $(this).index(".assign")
+	// Html container for guys...
+	var guyOptions;
+	// For each guy
+	$.each(app.churchProfile.men, function(key, man) {
+		// If the guy is attending...
+		if (man.attending) {
+			guyOptions += `
+				<div 
+					class="cursor-pointer text-lg" 
+					onclick="$($('.assign')[`+assignFieldIndex+`]).html('${man.name}'); swal.close();"
+				>
+					${man.name}
+				</div>
+			`;
+		}
+	});
+	// Open the sweet alert
+	swal({
+		title:'Select a Man', 
+		html: guyOptions
+	})
+})

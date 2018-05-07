@@ -90,6 +90,10 @@
 		  100% { transform: rotate(360deg); }
 		}
 
+		.assign {
+			cursor: pointer;
+		}
+
 	</style>
 
 </head>
@@ -343,7 +347,7 @@ var slideout = new Slideout({
 
 	function isOdd(num) { return num % 2;}
 
-	var pageNumber = 1
+	var pageNumber = 0
 	function breakPages() {
 		// Assume we'll add a page and increment the page number...
 		window.pageNumber += 1;
@@ -407,6 +411,6 @@ var slideout = new Slideout({
 	}
 </script>
 
-<script src="dist/js/scripts-min.js?v=3.1"></script>
+<script src="dist/js/scripts-min.js?v=3.5"></script>
 
 </html>
