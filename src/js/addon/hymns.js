@@ -833,5 +833,6 @@ hymns = {
 	"729": {"name": "I will sing you a song of that beautiful land", "link": "hymn.html?hymn_id=329"},
 	"730": {"name": "God shall wipe away all tears", "link": "hymn.html?hymn_id=222"},
 	"730": {"name": "In the land of fadeless day", "link": "hymn.html?hymn_id=344"},
-	"730": {"name": "No Night There", "link": "hymn.html?hymn_id=483"}
+	"730": {"name": "No Night There", "link": "hymn.html?hymn_id=483"},
+	"731": {"name": "And Can it Be", "link": "https://www.hymnal.net/en/hymn/h/296"},
 }

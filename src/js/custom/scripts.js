@@ -58,11 +58,19 @@ var Hymns = {
 				<!-- Song -->
 				<div class="flex items-center w-full justify-left" :class="{'pt-4' : index}" v-for="hymn, index in hymns">
 					<div class="text-5xl pr-4 text-grey-300 hymn">
-						<a :href="'https://www.opc.org/' + hymnsList[hymn]['link']" target="_blank" class="no-underline" >#{{ hymn }}</a>
+						<a v-if="hymnsList[hymn]['link'].includes('http')" :href="hymnsList[hymn]['link']" target="_blank" class="no-underline" >
+							#{{ hymn }}
+						</a>
+						<a v-else :href="'https://www.opc.org/' + hymnsList[hymn]['link']" target="_blank" class="no-underline" >
+							#{{ hymn }}
+						</a>
 					</div>
 					<div class="flex flex-col">
 						<div class="main-text">
-							<a :href="'https://www.opc.org/' + hymnsList[hymn]['link']" target="_blank">
+							<a v-if="hymnsList[hymn]['link'].includes('http')" :href="hymnsList[hymn]['link']" target="_blank">
+								{{ hymnsList[hymn]['name'] }}
+							</a>
+							<a v-else :href="'https://www.opc.org/' + hymnsList[hymn]['link']" target="_blank">
 								{{ hymnsList[hymn]['name'] }}
 							</a>
 						</div>
@@ -448,11 +456,11 @@ var app = new Vue({
 		        },
 		        success: function(response) {
 		        	swal("Saved!", "Success!", "success")
-		        	setTimeout(function(){ breakPages(); }, 300);
+		        	// setTimeout(function(){ breakPages(); }, 300);
 		        },
 		        error: function() {
 		        	swal("Not Saved!", "Unable to save online!", "error")
-		        	setTimeout(function(){ breakPages(); }, 300);	
+		        	// setTimeout(function(){ breakPages(); }, 300);	
 		        }
 		    });
 		},
@@ -479,11 +487,11 @@ var app = new Vue({
 				swal("You've already added four hymns!")
 				return false
 			}
-			if (!isNaN(this.newHymn) && Number(this.newHymn) <= 730 && Number(this.newHymn) >= 1 ) {
+			if (!isNaN(this.newHymn) && Number(this.newHymn) <= 731 && Number(this.newHymn) >= 1 ) {
 				this.selectedHymns.push(this.newHymn)
 				this.newHymn = null
 			} else {
-				swal("Please enter JUST a number between 1 and 730")
+				swal("Please enter JUST a number between 1 and 731")
 			}
 		},
 		addPrayer: function() {
